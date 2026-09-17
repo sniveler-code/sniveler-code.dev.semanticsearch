@@ -1,0 +1,14 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="Root" style="flex-grow: 0; flex-direction: row; align-items: center; height: 20px; background-color: rgba(0, 0, 0, 0.08); flex-shrink: 0; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px;">
+        <ui:Label text="Label" style="flex-grow: 1; -unity-text-align: upper-right;"/>
+        <ui:Button text="" name="Up" tooltip="Move up" style="padding-right: 3px; padding-left: 3px; margin-left: 1px; margin-right: 1px;">
+            <ui:Image source="project://database/Packages/sniveler-code.dev.semanticsearch/Editor/Templates/Icons/ArrowFatLineUp.png?fileID=2800000&amp;guid=8e9374eb71756814080fa89d957eb807&amp;type=3#ArrowFatLineUp" style="flex-shrink: 0; width: 15px; height: 15px;"/>
+        </ui:Button>
+        <ui:Button text="" name="Down" tooltip="Move down" style="padding-right: 3px; padding-left: 3px; margin-left: 1px; margin-right: 1px;">
+            <ui:Image source="project://database/Packages/sniveler-code.dev.semanticsearch/Editor/Templates/Icons/ArrowFatLineDown.png?fileID=2800000&amp;guid=5f67637860c86294f8a30c1329e5439f&amp;type=3#ArrowFatLineDown" style="flex-shrink: 0; width: 15px; height: 15px;"/>
+        </ui:Button>
+        <ui:Button text="" name="Remove" style="padding-right: 3px; padding-left: 3px; margin-left: 1px; margin-right: 1px;">
+            <ui:Image source="project://database/Packages/sniveler-code.dev.semanticsearch/Editor/Templates/Icons/ArrowFatLineRight.png?fileID=2800000&amp;guid=86c5f8e2a02763e479b1856567598d95&amp;type=3#ArrowFatLineRight" tooltip="Remove" style="flex-shrink: 0; width: 15px; height: 15px;"/>
+        </ui:Button>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,30 @@
+{
+  "name": "sniveler-code.dev.semanticsearch",
+  "version": "1.0.0",
+  "displayName": "AI Semantic Search",
+  "description": "Local AI-powered asset search using Unity Sentis and SQLite.",
+  "unity": "2022.3",
+  "license": "MIT",
+  "author": {
+    "name": "SnivelerCode",
+    "url": "https://github.com/snivelercode"
+  },
+  "dependencies": {
+    "com.unity.ai.inference": "2.3.0",
+    "com.unity.nuget.newtonsoft-json": "3.2.1"
+  },
+  "samples": [
+    {
+      "displayName": "Base AI Model & Demo Assets",
+      "description": "Essential MiniLM model (~22 MB uint8-quantized Sentis build), BERT tokenizer config and medieval demo prefabs to test the search engine immediately.",
+      "path": "Samples~/DemoContent"
+    }
+  ],
+  "keywords": [
+    "ai",
+    "search",
+    "embeddings",
+    "sentis",
+    "sqlite"
+  ]
+}

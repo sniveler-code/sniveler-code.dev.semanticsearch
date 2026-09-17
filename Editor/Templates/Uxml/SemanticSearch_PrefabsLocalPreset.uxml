@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="Root" style="width: 200px; flex-grow: 0; flex-shrink: 0; margin-right: 5px;">
+        <ui:Label text="Preset" style="-unity-text-align: upper-center; background-color: rgba(0, 0, 0, 0.08);"/>
+        <ui:VisualElement name="" style="flex-shrink: 0; flex-grow: 1;">
+            <ui:VisualElement name="PresetContainer" style="margin-top: 5px; flex-shrink: 0; -unity-text-align: upper-left;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="Root" style="margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;">
+        <ui:VisualElement name="Warnings" style="flex-grow: 1; justify-content: flex-start; padding-right: 5px; padding-left: 5px; flex-shrink: 0; flex-direction: column-reverse; align-items: stretch; margin-bottom: 1px;"/>
+        <ui:VisualElement style="flex-grow: 0; flex-direction: row; align-items: center; height: 20px; flex-shrink: 0;">
+            <ui:ProgressBar value="-1" title="Semantic" name="ProgressBar" style="flex-grow: 1; height: 20px;"/>
+            <ui:Label text="Database: 1234" name="Database" style="width: 150px; background-color: rgba(0, 0, 0, 0.08); margin-left: 5px; height: 20px; -unity-text-align: middle-left; padding-left: 5px;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

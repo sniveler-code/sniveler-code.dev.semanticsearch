@@ -1,0 +1,9 @@
+*.onnx filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -text
+Editor/ThirdParty/SQLite/MacOSX/sqldiff filter=lfs diff=lfs merge=lfs -text
+Editor/ThirdParty/SQLite/MacOSX/sqlite3 filter=lfs diff=lfs merge=lfs -text
+Editor/ThirdParty/SQLite/MacOSX/sqlite3_analyzer filter=lfs diff=lfs merge=lfs -text
+Editor/ThirdParty/SQLite/MacOSX/sqlite3_rsync filter=lfs diff=lfs merge=lfs -text
+*.sentis filter=lfs diff=lfs merge=lfs -text

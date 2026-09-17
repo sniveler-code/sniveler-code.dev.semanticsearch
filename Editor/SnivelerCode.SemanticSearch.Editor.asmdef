@@ -1,0 +1,21 @@
+{
+    "name": "SnivelerCode.SemanticSearch.Editor",
+    "rootNamespace": "SnivelerCode.SemanticSearch",
+    "references": [
+        "Unity.InferenceEngine",
+        "Unity.InferenceEngine.Tokenization"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [
+        "Newtonsoft.Json.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

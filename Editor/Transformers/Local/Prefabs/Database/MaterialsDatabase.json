@@ -1,0 +1,59 @@
+{
+  "categories": [
+    {
+      "id": "metal_industrial",
+      "keys": "steel, iron, metal, metallic, lead, chrome, silver, alloy",
+      "values": "hard, heavy, industrial, durable, cold, conductant, solid, gray"
+    },
+    {
+      "id": "metal_noble",
+      "keys": "gold, bronze, copper, brass, shiny, precious, gilded",
+      "values": "expensive, ancient, yellow, wealth, decorative, ritual, polished, orange"
+    },
+    {
+      "id": "wood_organic",
+      "keys": "wood, wooden, oak, birch, pine, log, plank, timber, bark",
+      "values": "brown, natural, flammable, organic, construction, light, textured, carpentry"
+    },
+    {
+      "id": "stone_mineral",
+      "keys": "stone, rock, boulder, granite, marble, brick, concrete, slate",
+      "values": "geological, heavy, rough, hard, ancient, construction, gray, dusty, immovable"
+    },
+    {
+      "id": "fabric_textile",
+      "keys": "cloth, fabric, wool, silk, cotton, canvas, linen, rug",
+      "values": "soft, flexible, lightweight, flammable, wearable, colored, textile, interior"
+    },
+    {
+      "id": "leather_organic",
+      "keys": "leather, hide, skin, fur, pelt, parchment",
+      "values": "tough, organic, biological, flexible, brown, animal, wearable, dried, hunter"
+    },
+    {
+      "id": "glass_translucent",
+      "keys": "glass, crystal, ice, diamond, gem, translucent, transparent",
+      "values": "fragile, reflective, clear, refractive, breakable, cold, jewelry, window, magic"
+    },
+    {
+      "id": "synthetic_modern",
+      "keys": "plastic, rubber, polymer, resin, synthetic, fiberglass, polycarbonate, acrylic, kevlar, neon, carbon",
+      "values": "modern, tech, industrial, artificial, smooth, lightweight, insulation, color"
+    },
+    {
+      "id": "liquid_fluid",
+      "keys": "water, oil, blood, lava, acid, liquid",
+      "values": "fluid, flow, wet, viscous, transparent, hazardous"
+    },
+    {
+      "id": "energy_emissive",
+      "keys": "energy, plasma, laser, glow, forcefield, hologram",
+      "values": "emissive, bright, sci_fi, power, intangible, luminous"
+    },
+    {
+      "id": "soil_ground",
+      "keys": "soil, dirt, mud, sand, gravel, ground",
+      "values": "earthy, loose, natural, terrain, dusty, outdoor"
+    }
+  ]
+}

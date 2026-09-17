@@ -1,0 +1,12 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Tab label=" Search" icon-image="project://database/Packages/sniveler-code.dev.semanticsearch/Editor/Templates/Icons/Eye.png?fileID=2800000&amp;guid=f50e950a6b03514499ddaae04b57903b&amp;type=3#Eye" style="flex-grow: 1;">
+        <ui:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 15px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; height: 26px; flex-shrink: 0; align-items: stretch;">
+            <ui:TextField label="" placeholder-text="Describe what you need..." name="QueryInput" tooltip="Enter a natural language description (e.g., &apos;rusty metal box&apos; or &apos;ambient forest birds&apos;)." style="flex-grow: 1;"/>
+            <ui:Button text="Search" name="QueryButton" tooltip="Convert query to vector and find matching assets in the local database." style="width: 80px; -unity-text-align: middle-right;">
+                <ui:Image name="" source="project://database/Packages/sniveler-code.dev.semanticsearch/Editor/Templates/Icons/LineSegments.png?fileID=2800000&amp;guid=a1c7819601b3c534d98c21df70914065&amp;type=3#LineSegments" style="height: 20px; width: 20px;"/>
+            </ui:Button>
+        </ui:VisualElement>
+        <ui:SliderInt label="Sensitivity %" value="25" high-value="100" show-input-field="true" name="SensitivitySlider" tooltip="Similarity threshold. Higher values (70%+) return more precise matches; lower values allow for broader associations." style="-unity-text-align: upper-right; margin-bottom: 10px;"/>
+        <ui:TabView name="ResultTabs"/>
+    </ui:Tab>
+</ui:UXML>

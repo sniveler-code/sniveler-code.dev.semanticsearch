@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="" style="flex-grow: 1; flex-direction: row; align-items: center; height: 20px; flex-shrink: 0;">
+        <ui:Label text="99%" name="Score" style="margin-left: 10px; width: 28px; -unity-text-align: upper-right; margin-right: 10px;"/>
+        <ui:VisualElement style="width: 20px; height: 20px; align-items: center; justify-content: center; flex-direction: row;">
+            <ui:Image source="project://database/Packages/sniveler-code.dev.semanticsearch/Editor/Templates/Icons/PottedPlant.png?fileID=2800000&amp;guid=03b0b81ec0cb03741a382fd34c514d1d&amp;type=3#PottedPlant" name="" style="width: 20px; height: 20px;"/>
+        </ui:VisualElement>
+        <ui:Label text="Label" name="Name" style="margin-left: 10px;"/>
+    </ui:VisualElement>
+</ui:UXML>

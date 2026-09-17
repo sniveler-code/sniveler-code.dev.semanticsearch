@@ -1,0 +1,139 @@
+{
+  "categories": [
+    {
+      "id": "health_vitality",
+      "keys": "Health, Life, Damageable, Vitality, Heart, Living",
+      "values": "survival, restoration, healing, wellness, protection, life_points"
+    },
+    {
+      "id": "locomotion_movement",
+      "keys": "Movement, Locomotion, Controller, Motor, Walk, Fly, Swim",
+      "values": "motion, mobility, travel, navigation, speed, displacement"
+    },
+    {
+      "id": "combat_offense",
+      "keys": "Combat, Attack, Weapon, Shooter, Striker, Damage",
+      "values": "conflict, violence, offense, aggression, strike, battle"
+    },
+    {
+      "id": "combat_defense",
+      "keys": "Defense, Shield, Parry, Block, ArmorSystem",
+      "values": "protection, shielding, safety, resilience, guard, deflection"
+    },
+    {
+      "id": "inventory_storage",
+      "keys": "Inventory, Bag, Backpack, Storage, Container, Stash",
+      "values": "management, collection, items, equipment, loot, hoarding"
+    },
+    {
+      "id": "interaction_system",
+      "keys": "Interact, Trigger, Proximity, Use, Clickable, Selector",
+      "values": "engagement, activation, user_input, event, feedback, connection"
+    },
+    {
+      "id": "ai_intelligence",
+      "keys": "AI, Behavior, Brain, NPCControl, Agent, Pathfinding",
+      "values": "intelligence, decision, autonomy, logic, character, strategy"
+    },
+    {
+      "id": "audio_feedback",
+      "keys": "Audio, Sound, SFX, Music, Emitter, Speaker",
+      "values": "auditory, hearing, soundtrack, volume, ambiance, signal"
+    },
+    {
+      "id": "visual_vfx",
+      "keys": "VFX, Particle, Spark, Smoke, Flare",
+      "values": "visuals, impact, spectacle, atmosphere, emission, glow"
+    },
+    {
+      "id": "lighting_logic",
+      "keys": "Light, Lamp, Lantern, Brightness, Flicker",
+      "values": "illumination, visibility, ambiance, radiance, light_source"
+    },
+    {
+      "id": "physics_simulation",
+      "keys": "Rigidbody, Collider, Physics, Gravity, Buoyancy",
+      "values": "collision, force, physical, solid, gravity, mass"
+    },
+    {
+      "id": "quest_tracking",
+      "keys": "Quest, Task, Objective, Mission, Story, Lore",
+      "values": "progression, goal, advancement, achievement, sequence, narrative"
+    },
+    {
+      "id": "resource_management",
+      "keys": "Producer, Mine, Farm, Harvest, Economy, Gatherer",
+      "values": "production, yield, supply, gathering, materials, income"
+    },
+    {
+      "id": "ui_interface",
+      "keys": "UI, Canvas, HUD, Interface, Menu, Button",
+      "values": "information, display, overlay, user_feedback, gui, navigation"
+    },
+    {
+      "id": "camera_utility",
+      "keys": "Camera, View, Follow, Look, Zoom, Lens",
+      "values": "perspective, vision, focus, observation, framing, viewport"
+    },
+    {
+      "id": "animation_logic",
+      "keys": "Animator, Animation, Motion, Sequence, Posture",
+      "values": "performance, action, fluidity, movement, pose, expression"
+    },
+    {
+      "id": "environment_logic",
+      "keys": "Weather, DayNight, Water, Terrain, Wind",
+      "values": "ambiance, world_state, natural, environmental, simulation"
+    },
+    {
+      "id": "crafting_system",
+      "keys": "Craft, Recipe, Forge, Workbench, Cooking",
+      "values": "creation, transformation, workshop, assembly, processing"
+    },
+    {
+      "id": "network_sync",
+      "keys": "Network, Sync, Multiplayer, Online, Lobby",
+      "values": "connection, multiplayer, synchronization, data_transfer, online"
+    },
+    {
+      "id": "item_pickup",
+      "keys": "Pickup, Collectible, LootItem, Powerup",
+      "values": "acquisition, reward, bonus, gain, interactive_item"
+    },
+    {
+      "id": "status_effects",
+      "keys": "Poison, Bleed, Burn, Freeze, Stun, Debuff",
+      "values": "gameplay_mechanic, damage_over_time, status_alteration, debuff, influence"
+    },
+    {
+      "id": "input_control",
+      "keys": "input, gamepad, keyboard, touch, joystick, mouse",
+      "values": "control, interaction, user_input, command, response, binding"
+    },
+    {
+      "id": "progression_system",
+      "keys": "Achievement, Trophy, Unlock, Progress, Level, Experience",
+      "values": "advancement, reward, milestone, growth, completion, player"
+    },
+    {
+      "id": "spawner_logic",
+      "keys": "Spawner, Respawn, Instantiate, Wave, Pool",
+      "values": "generation, creation, runtime, management, waves, population"
+    },
+    {
+      "id": "damage_system",
+      "keys": "Damage, Hit, Impact, Wound, Hitbox, Destruction",
+      "values": "combat, injury, reduction, balance, feedback, state"
+    },
+    {
+      "id": "weather_system",
+      "keys": "Weather, Rain, Snow, Wind, Fog, Storm",
+      "values": "environment, climate, dynamic, atmosphere, simulation, world"
+    },
+    {
+      "id": "time_system",
+      "keys": "Time, DayNight, Clock, Schedule, Timer",
+      "values": "progression, cycle, simulation, world_state, scheduling, dynamic"
+    }
+  ]
+}

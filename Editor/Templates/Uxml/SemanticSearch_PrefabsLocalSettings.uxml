@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="Root" style="flex-grow: 1;">
+        <ui:Label text="Settings" name="" style="-unity-text-align: upper-center; background-color: rgba(0, 0, 0, 0.08);"/>
+        <ui:VisualElement name="MetadataContainer" style="margin-bottom: 8px;"/>
+        <ui:VisualElement name="ContextContainer" style="margin-top: 8px;"/>
+    </ui:VisualElement>
+</ui:UXML>

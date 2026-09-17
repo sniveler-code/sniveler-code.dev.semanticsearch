@@ -1,0 +1,20 @@
+.tab-content {
+    flex-grow: 1;
+}
+
+.warning-message .unity-label {
+    cursor: link;
+}
+
+.warning-message:hover .unity-label {
+    color: yellow;
+}
+
+.field-container--error {
+    border-color: red !important;
+    border-bottom-width: 1px;
+}
+
+.message-label--error {
+    color: #FF0000;
+}

@@ -1,0 +1,832 @@
+{
+  "categories": [
+    {
+      "id": "swords_heavy",
+      "parent": "weapons_melee",
+      "keys": "claymore, greatsword, zweihander, flamberge",
+      "values": "massive, two handed, heavy, crushing, knight, steel"
+    },
+    {
+      "id": "swords_medium",
+      "parent": "weapons_melee",
+      "keys": "longsword, arming_sword, broadsword",
+      "values": "balanced, steel, knight, slashing, double edged"
+    },
+    {
+      "id": "swords_light",
+      "parent": "weapons_melee",
+      "keys": "rapier, saber, foil, estoc, cutlass",
+      "values": "agile, piercing, dueling, thin, fencer"
+    },
+    {
+      "id": "swords_oriental",
+      "parent": "weapons_melee",
+      "keys": "katana, wakizashi, odachi, tachi",
+      "values": "curved, eastern, samurai, sharp, single edged"
+    },
+    {
+      "id": "daggers_knives",
+      "parent": "weapons_melee",
+      "keys": "dagger, knife, dirk, stiletto, kris",
+      "values": "short, concealable, stealth, piercing, backup"
+    },
+    {
+      "id": "axes_battle",
+      "parent": "weapons_melee",
+      "keys": "battleaxe, greataxe, waraxe",
+      "values": "heavy, cleaving, brutal, viking, executioner"
+    },
+    {
+      "id": "blunt_maces",
+      "parent": "weapons_melee",
+      "keys": "mace, morningstar, flail, bludgeon",
+      "values": "spiked, blunt, armor breaking, knight, impact"
+    },
+    {
+      "id": "blunt_hammers",
+      "parent": "weapons_melee",
+      "keys": "warhammer, maul, sledgehammer",
+      "values": "heavy, crushing, impact, blacksmith, smash"
+    },
+    {
+      "id": "polearms_spears",
+      "parent": "weapons_melee",
+      "keys": "spear, pike, lance, trident, javelin",
+      "values": "reach, long, infantry, thrusting, shaft"
+    },
+    {
+      "id": "polearms_heavy",
+      "parent": "weapons_melee",
+      "keys": "halberd, poleaxe, glaive, bardiche",
+      "values": "heavy, reach, versatility, guard, infantry"
+    },
+    {
+      "id": "axes_throwing",
+      "parent": "weapons_ranged",
+      "keys": "tomahawk, throwing_axe, franciscan",
+      "values": "ranged, agile, projectile, light, small"
+    },
+    {
+      "id": "ranged_bows",
+      "parent": "weapons_ranged",
+      "keys": "longbow, recurve, shortbow, composite_bow",
+      "values": "archery, wood, string, ranged, stealth, hunter"
+    },
+    {
+      "id": "ranged_crossbows",
+      "parent": "weapons_ranged",
+      "keys": "crossbow, arbalest, repeating_crossbow",
+      "values": "mechanical, trigger, bolt, heavy, ranged, precision"
+    },
+    {
+      "id": "shields_tower",
+      "parent": "combat_utility",
+      "keys": "tower_shield, pavise, bulwark",
+      "values": "massive, protection, wall, steel, heavy, defensive"
+    },
+    {
+      "id": "shields_kite",
+      "parent": "combat_utility",
+      "keys": "kite_shield, heater_shield, heraldic_shield",
+      "values": "knight, medieval, triangular, defense, metallic, wood"
+    },
+    {
+      "id": "shields_small",
+      "parent": "combat_utility",
+      "keys": "buckler, targe, target_shield",
+      "values": "round, light, parry, agile, dueling"
+    },
+    {
+      "id": "helmets_full",
+      "parent": "armor_protective",
+      "keys": "great_helm, armet, close_helmet",
+      "values": "full_face, visor, heavy, knight, metallic, protective"
+    },
+    {
+      "id": "helmets_open",
+      "parent": "armor_protective",
+      "keys": "sallet, bascinet, barbute, kettle_hat",
+      "values": "visibility, open_face, guard, steel, medieval"
+    },
+    {
+      "id": "body_heavy_plate",
+      "parent": "armor_protective",
+      "keys": "cuirass, breastplate, full_plate",
+      "values": "torso, heavy, steel, knight, protective, solid"
+    },
+    {
+      "id": "body_chainmail",
+      "parent": "armor_protective",
+      "keys": "hauberk, coif, mail_shirt",
+      "values": "interlocking, rings, flexible, metallic, underarmor"
+    },
+    {
+      "id": "arm_protection",
+      "parent": "armor_protective",
+      "keys": "pauldron, vambrace, rerebrace, couter",
+      "values": "shoulder, arm, metallic, plate, defense"
+    },
+    {
+      "id": "hand_protection",
+      "parent": "armor_protective",
+      "keys": "gauntlet, glove, mitten",
+      "values": "hand, grip, metallic, leather, armored"
+    },
+    {
+      "id": "leg_protection",
+      "parent": "armor_protective",
+      "keys": "greave, sabaton, poleyn, chausses",
+      "values": "leg, foot, shin, metallic, heavy, walking"
+    },
+    {
+      "id": "body_leather_padded",
+      "parent": "clothing_fabric",
+      "keys": "gambeson, brigandine, leather_armor, tunic",
+      "values": "light, fabric, flexible, survival, hunter"
+    },
+    {
+      "id": "tables_dining",
+      "parent": "furniture_surfaces",
+      "keys": "dining_table, banquet_table, trestle_table",
+      "values": "eating, surface, interior, wood, large, family"
+    },
+    {
+      "id": "tables_small",
+      "parent": "furniture_surfaces",
+      "keys": "coffee_table, side_table, nightstand",
+      "values": "small, interior, wood, surface, decorative"
+    },
+    {
+      "id": "desks_work",
+      "parent": "furniture_surfaces",
+      "keys": "desk, workbench, lectern, writing_table",
+      "values": "office, study, surface, wood, utility, workstation"
+    },
+    {
+      "id": "seating_luxury",
+      "parent": "furniture_seating",
+      "keys": "throne, sofa, armchair, chaise",
+      "values": "royal, comfort, upholstered, soft, expensive, interior"
+    },
+    {
+      "id": "seating_simple",
+      "parent": "furniture_seating",
+      "keys": "chair, stool, bench, ottoman",
+      "values": "sitting, wood, common, interior, kitchen, simple"
+    },
+    {
+      "id": "beds_large",
+      "parent": "furniture_beds",
+      "keys": "bed, canopy bed, four poster",
+      "values": "sleeping, rest, bedroom, soft, fabric, mattress"
+    },
+    {
+      "id": "beds_small",
+      "parent": "furniture_beds",
+      "keys": "cot, hammock, bunk_bed, crib",
+      "values": "compact, sleeping, simple, travel, interior"
+    },
+    {
+      "id": "storage_shelves",
+      "parent": "furniture_storage",
+      "keys": "bookcase, shelf, rack, stand",
+      "values": "organization, display, vertical, wood, holding"
+    },
+    {
+      "id": "storage_cabinets",
+      "parent": "furniture_storage",
+      "keys": "wardrobe, cabinet, dresser, sideboard",
+      "values": "enclosed, storage, clothes, wood, interior, drawers"
+    },
+    {
+      "id": "storage_chests",
+      "parent": "containers_rigid",
+      "keys": "chest, trunk, coffer, lockbox",
+      "values": "treasure, storage, loot, medieval, wood, locked"
+    },
+    {
+      "id": "tableware_plates",
+      "parent": "domestic_kitchen",
+      "keys": "dinner_plate, platter, saucer, bowl",
+      "values": "ceramic, eating, serving, kitchen, flat, dish"
+    },
+    {
+      "id": "tableware_drinking",
+      "parent": "domestic_kitchen",
+      "keys": "mug, cup, goblet, chalice, flagon",
+      "values": "liquid, metal, ceramic, kitchen, drinking, vessel"
+    },
+    {
+      "id": "tableware_cutlery",
+      "parent": "domestic_kitchen",
+      "keys": "fork, spoon, knife, cutlery",
+      "values": "eating_tool, utensil, small, metal, silver, kitchen"
+    },
+    {
+      "id": "kitchen_cookware",
+      "parent": "domestic_kitchen",
+      "keys": "pot, pan, cauldron, kettle, skillet",
+      "values": "cooking, heat, fire, iron, kitchen, boiling"
+    },
+    {
+      "id": "kitchen_utensils",
+      "parent": "domestic_kitchen",
+      "keys": "ladle, rolling_pin, mortar, pestle",
+      "values": "preparation, craft, kitchen, tool, manual"
+    },
+    {
+      "id": "cleaning_utility",
+      "parent": "domestic_utility",
+      "keys": "broom, bucket, tub, washbasin",
+      "values": "cleaning, utility, household, water, maintenance"
+    },
+    {
+      "id": "decor_vases",
+      "parent": "arch_decor",
+      "keys": "vase, urn, jar, planter",
+      "values": "pottery, botanical, decorative, interior, ceramic, flower"
+    },
+    {
+      "id": "decor_wall",
+      "parent": "arch_decor",
+      "keys": "painting, tapestry, mirror, banner",
+      "values": "wall, decoration, interior, fabric, art, display"
+    },
+    {
+      "id": "decor_floor",
+      "parent": "clothing_fabric",
+      "keys": "rug, carpet, mat, fur_rug",
+      "values": "floor, fabric, comfort, interior, soft, textile"
+    },
+    {
+      "id": "books_documents",
+      "parent": "quest_items",
+      "keys": "book, journal, ledger, document, scroll",
+      "values": "paper, wisdom, knowledge, history, library, writing"
+    },
+    {
+      "id": "food_vegetables",
+      "parent": "food_organic",
+      "keys": "carrot, potato, onion, tomato, cabbage, corn",
+      "values": "raw, farm, harvest, healthy, ingredient, earth"
+    },
+    {
+      "id": "food_fruits",
+      "parent": "food_organic",
+      "keys": "apple, banana, berry, grape, orange, pear",
+      "values": "sweet, tree, orchard, raw, snack, organic"
+    },
+    {
+      "id": "food_meat_raw",
+      "parent": "food_organic",
+      "keys": "raw_meat, steak, carcass, fish, chicken",
+      "values": "biological, animal, slaughter, protein, hunting"
+    },
+    {
+      "id": "food_meat_cooked",
+      "parent": "food_prepared",
+      "keys": "roast, cooked_meat, stew, ham, sausage",
+      "values": "meal, kitchen, nutrition, prepared, delicious"
+    },
+    {
+      "id": "food_bakery",
+      "parent": "food_prepared",
+      "keys": "bread, bun, pastry, pie, loaf",
+      "values": "baked, flour, wheat, kitchen, snack, carbohydrate"
+    },
+    {
+      "id": "food_dairy",
+      "parent": "food_organic",
+      "keys": "cheese, milk, butter, egg",
+      "values": "farm, animal, protein, dairy, ingredient"
+    },
+    {
+      "id": "nature_trees_conifer",
+      "parent": "nature_trees",
+      "keys": "pine, spruce, fir, cedar",
+      "values": "evergreen, needles, forest, winter, timber"
+    },
+    {
+      "id": "nature_trees_deciduous",
+      "parent": "nature_trees",
+      "keys": "oak, birch, maple, willow, palm",
+      "values": "leaves, summer, forest, botanical, garden, foliage"
+    },
+    {
+      "id": "nature_shrubs",
+      "parent": "nature_plants",
+      "keys": "bush, shrub, fern, bramble",
+      "values": "low_vegetation, garden, forest, greenery, wild"
+    },
+    {
+      "id": "nature_rocks",
+      "parent": "nature_terrain",
+      "keys": "rock, boulder, cliff, stone, pebble",
+      "values": "geological, heavy, gray, earth, mountain, hard"
+    },
+    {
+      "id": "terrain_formations",
+      "parent": "nature_terrain",
+      "keys": "mound, hill, cave, dune, island",
+      "values": "landscape, world, background, formation, geography"
+    },
+    {
+      "id": "forge_equipment",
+      "parent": "industrial_heavy",
+      "keys": "anvil, bellows, forge, furnace",
+      "values": "blacksmith, heat, fire, craft, iron, heavy"
+    },
+    {
+      "id": "forge_tools",
+      "parent": "tools_manual",
+      "keys": "tongs, ingot_mold, crucible, oil_drum",
+      "values": "blacksmith, smelting, craft, metalworking, industrial"
+    },
+    {
+      "id": "tools_striking",
+      "parent": "tools_manual",
+      "keys": "hammer, sledgehammer, mallet",
+      "values": "impact, hitting, workshop, tool, construction"
+    },
+    {
+      "id": "tools_cutting",
+      "parent": "tools_manual",
+      "keys": "saw, chisel, file, plane, shears",
+      "values": "carpentry, sharp, woodworking, tool, manual"
+    },
+    {
+      "id": "tools_mechanic",
+      "parent": "tools_manual",
+      "keys": "wrench, pliers, screwdriver, drill",
+      "values": "repair, maintenance, hardware, metal, fix"
+    },
+    {
+      "id": "tools_farm",
+      "parent": "tools_farming",
+      "keys": "scythe, pitchfork, rake, hoe",
+      "values": "agriculture, field, harvest, manual, farm"
+    },
+    {
+      "id": "tools_digging",
+      "parent": "tools_manual",
+      "keys": "shovel, pickaxe, mattock, trowel",
+      "values": "mining, excavation, ground, earth, heavy"
+    },
+    {
+      "id": "ropes_chains",
+      "parent": "tools_manual",
+      "keys": "rope, chain, cable, cord, hoist",
+      "values": "flexible, binding, connection, climbing, industrial"
+    },
+    {
+      "id": "materials_raw",
+      "parent": "resources_raw",
+      "keys": "log, ore, raw_stone, coal, sulfur",
+      "values": "unprocessed, resource, mining, forest, stack"
+    },
+    {
+      "id": "materials_refined",
+      "parent": "resources_refined",
+      "keys": "ingot, plank, leather, fabric, paper",
+      "values": "processed, crafting, workshop, material, inventory"
+    },
+    {
+      "id": "containers_bulk",
+      "parent": "containers_rigid",
+      "keys": "crate, barrel, cargo, shipping_box",
+      "values": "logistics, industrial, warehouse, wood, commercial"
+    },
+    {
+      "id": "containers_small",
+      "parent": "containers_rigid",
+      "keys": "basket, box, bucket, tray",
+      "values": "household, simple, storage, organization, wood"
+    },
+    {
+      "id": "containers_soft",
+      "parent": "containers_flexible",
+      "keys": "sack, bag, pouch, backpack",
+      "values": "portable, fabric, leather, travel, inventory"
+    },
+    {
+      "id": "logistics_transport",
+      "parent": "vehicles_land",
+      "keys": "cart, wagon, carriage, sled",
+      "values": "movement, transport, horse drawn, wooden, wheel"
+    },
+    {
+      "id": "lighting_indoor",
+      "parent": "lighting_source",
+      "keys": "chandelier, sconce, lamp, lantern",
+      "values": "interior, artificial, glow, light, hanging, decorative"
+    },
+    {
+      "id": "lighting_fire",
+      "parent": "lighting_source",
+      "keys": "torch, candle, campfire, brazier",
+      "values": "flame, burning, orange, warmth, light, smoke"
+    },
+    {
+      "id": "alchemy_lab",
+      "parent": "chemical_substances",
+      "keys": "alembic, burner, mortar, pestle, beaker",
+      "values": "science, brewing, laboratory, chemist, glassware"
+    },
+    {
+      "id": "alchemy_containers",
+      "parent": "chemical_substances",
+      "keys": "vial, flask, potion_bottle, elixir_bottle",
+      "values": "liquid, glass, magic, status_effect, consumable"
+    },
+    {
+      "id": "magic_focus",
+      "parent": "magic_arcane",
+      "keys": "staff, wand, orb, crystal_ball",
+      "values": "energy, wizard, channeling, magical, power"
+    },
+    {
+      "id": "magic_artifacts",
+      "parent": "magic_arcane",
+      "keys": "amulet, ring, idol, ritual_skull",
+      "values": "jewelry, enchanted, ritual, cursed, holy, mystical"
+    },
+    {
+      "id": "magic_symbols",
+      "parent": "magic_ritual",
+      "keys": "altar, pentagram, rune_stone, shrine",
+      "values": "religion, spiritual, worship, ancient, stone"
+    },
+    {
+      "id": "arch_walls",
+      "parent": "arch_structural",
+      "keys": "wall, fence, gate, arch",
+      "values": "boundary, stone, wood, exterior, enclosure"
+    },
+    {
+      "id": "arch_stairs",
+      "parent": "arch_elements",
+      "keys": "stairs, ladder, ramp, bridge",
+      "values": "climbing, vertical, passage, wooden, stone"
+    },
+    {
+      "id": "arch_windows",
+      "parent": "arch_elements",
+      "keys": "window, frame, glass_pane, shutter",
+      "values": "visibility, wall, interior, exterior, glass"
+    },
+    {
+      "id": "ruins_rubble",
+      "parent": "debris_waste",
+      "keys": "rubble, debris, brick_pile, concrete_chunk",
+      "values": "destroyed, broken, waste, abandoned, decay"
+    },
+    {
+      "id": "ruins_structures",
+      "parent": "ruins_ancient",
+      "keys": "statue_remains, broken_pillar, tombstone",
+      "values": "historical, weathered, archaeology, stone, forgotten"
+    },
+    {
+      "id": "valuables_currency",
+      "parent": "quest_items",
+      "keys": "coin, money, gold_coin, pouch, loot, treasure, currency, cent, dollar",
+      "values": "wealth, trade, economy, valuable, metallic, small, payment"
+    },
+    {
+      "id": "keys_locks",
+      "parent": "quest_items",
+      "keys": "key, lock, padlock, skeleton_key, keychain",
+      "values": "interaction, transition, opening, metallic, small, secret, security"
+    },
+    {
+      "id": "fx_smoke",
+      "parent": "fx_particles",
+      "keys": "smoke, steam, vapor, mist, plume",
+      "values": "gas, obscuring, rising, transient, atmosphere, soft"
+    },
+    {
+      "id": "fx_sparks",
+      "parent": "fx_particles",
+      "keys": "spark, ember, cinder, flare, sparkle",
+      "values": "bright, hot, brief, metallic, friction, glow"
+    },
+    {
+      "id": "fx_dust",
+      "parent": "fx_particles",
+      "keys": "dust, sand cloud, pollen, ash, particle cloud",
+      "values": "dry, airborne, powdery, light, settling, earthy"
+    },
+    {
+      "id": "fx_fire_blast",
+      "parent": "fx_explosions",
+      "keys": "fireball, inferno, flame burst, blaze wave",
+      "values": "burning, violent, expanding, lethal, heat, destruction"
+    },
+    {
+      "id": "fx_muzzle_flash",
+      "parent": "fx_explosions",
+      "keys": "muzzle flash, gun flash, discharge, shot burst",
+      "values": "firearm, brief, bright, loud, projectile, combat"
+    },
+    {
+      "id": "loot_gems",
+      "parent": "loot_collectibles",
+      "keys": "gem, jewel, crystal, diamond, ruby, emerald",
+      "values": "precious, sparkle, rare, valuable, mineral, treasure"
+    },
+    {
+      "id": "loot_pickups",
+      "parent": "loot_collectibles",
+      "keys": "pickup, powerup, bonus, ammo box, health pack",
+      "values": "reward, boost, gameplay, consumable, helpful, floating"
+    },
+    {
+      "id": "interact_switches",
+      "parent": "interaction_props",
+      "keys": "switch, toggle, pressure plate, breaker",
+      "values": "on_off, activation, mechanism, state, control, trigger"
+    },
+    {
+      "id": "interact_levers",
+      "parent": "interaction_props",
+      "keys": "lever, pull handle, crank, winch",
+      "values": "mechanical, force, motion, ancient, control, pivot"
+    },
+    {
+      "id": "interact_buttons",
+      "parent": "interaction_props",
+      "keys": "button, push button, keypad, console key",
+      "values": "press, digital, interface, small, control, signal"
+    },
+    {
+      "id": "traps_spikes",
+      "parent": "traps_hazards",
+      "keys": "spike trap, spikes, impale, punji",
+      "values": "lethal, sharp, floor, dungeon, hidden, damage"
+    },
+    {
+      "id": "traps_mechanical",
+      "parent": "traps_hazards",
+      "keys": "saw blade, swinging axe, crusher, dart trap",
+      "values": "mechanism, deadly, moving, dungeon, ambush, timing"
+    },
+    {
+      "id": "markers_arrows",
+      "parent": "checkpoints_waypoints",
+      "keys": "arrow marker, direction sign, guide arrow",
+      "values": "navigation, pointing, guidance, interface, objective, path"
+    },
+    {
+      "id": "markers_beacon",
+      "parent": "checkpoints_waypoints",
+      "keys": "beacon, signal fire, flare marker, light pillar",
+      "values": "signal, location, visibility, rescue, guidance, bright"
+    },
+    {
+      "id": "portal_rings",
+      "parent": "portals_teleports",
+      "keys": "portal ring, magic gate, summoning circle",
+      "values": "magical, circular, glowing, transport, ritual, energy"
+    },
+    {
+      "id": "portal_doors",
+      "parent": "portals_teleports",
+      "keys": "portal door, gateway arch, stargate, rift gate",
+      "values": "threshold, travel, dimensional, structure, sci_fi, passage"
+    },
+    {
+      "id": "music_strings",
+      "parent": "music_instruments",
+      "keys": "lute, harp, violin, guitar, cello",
+      "values": "stringed, melody, chord, wooden, performance, tuning"
+    },
+    {
+      "id": "music_winds",
+      "parent": "music_instruments",
+      "keys": "flute, trumpet, horn, whistle, pipe",
+      "values": "brass, breath, bright, melody, signal, ceremonial"
+    },
+    {
+      "id": "music_percussion",
+      "parent": "music_instruments",
+      "keys": "drum, tambourine, bell, gong, cymbal",
+      "values": "rhythm, beat, loud, ceremonial, impact, tempo"
+    },
+    {
+      "id": "signage_boards",
+      "parent": "signage_labels",
+      "keys": "signboard, wooden sign, placard, notice board",
+      "values": "information, text, direction, warning, painted, readable"
+    },
+    {
+      "id": "signage_arrows",
+      "parent": "signage_labels",
+      "keys": "arrow sign, directional sign, guidepost",
+      "values": "direction, pointing, navigation, wayfinding, path, simple"
+    },
+    {
+      "id": "roofs_shingle",
+      "parent": "arch_roofs",
+      "keys": "shingle roof, tiled roof, slate roof",
+      "values": "architecture, covering, rows, weathered, construction, angled"
+    },
+    {
+      "id": "roofs_thatch",
+      "parent": "arch_roofs",
+      "keys": "thatched roof, straw roof, hay roof",
+      "values": "rustic, organic, rural, weathered, straw, cottage"
+    },
+    {
+      "id": "doors_wooden",
+      "parent": "arch_doors",
+      "keys": "wooden door, plank door, timber door",
+      "values": "entrance, sturdy, rustic, hinge, knob, interior"
+    },
+    {
+      "id": "doors_metal",
+      "parent": "arch_doors",
+      "keys": "metal door, steel door, iron gate",
+      "values": "secure, industrial, heavy, lock, rivet, modern"
+    },
+    {
+      "id": "gates_large",
+      "parent": "arch_doors",
+      "keys": "castle gate, portcullis, main gate, drawbridge",
+      "values": "fortress, massive, entrance, defense, medieval, threshold"
+    },
+    {
+      "id": "fences_wood",
+      "parent": "arch_fencing",
+      "keys": "picket fence, wooden fence, rail fence",
+      "values": "boundary, rural, garden, property, rustic, enclosure"
+    },
+    {
+      "id": "fences_metal",
+      "parent": "arch_fencing",
+      "keys": "chain link, iron fence, metal railing",
+      "values": "boundary, industrial, secure, urban, thin, barrier"
+    },
+    {
+      "id": "fungus_caps",
+      "parent": "nature_fungus",
+      "keys": "toadstool, cap mushroom, umbrella fungus",
+      "values": "forest, spotted, damp, fairy, organic, wilderness"
+    },
+    {
+      "id": "fungus_clusters",
+      "parent": "nature_fungus",
+      "keys": "mushroom cluster, fungus patch, mold growth",
+      "values": "group, decay, damp, cave, organic, spreading"
+    },
+    {
+      "id": "flowers_single",
+      "parent": "nature_flowers",
+      "keys": "single flower, rose, tulip, daisy, lily",
+      "values": "bloom, colorful, delicate, garden, fragrant, spring"
+    },
+    {
+      "id": "flowers_bush",
+      "parent": "nature_flowers",
+      "keys": "flower bush, flowering shrub, rose bush",
+      "values": "dense, garden, colorful, landscaping, bloom, decorative"
+    },
+    {
+      "id": "grass_patches",
+      "parent": "nature_grass",
+      "keys": "grass patch, turf, lawn, meadow",
+      "values": "ground, green, soft, outdoor, vegetation, natural"
+    },
+    {
+      "id": "vines_ivy",
+      "parent": "nature_grass",
+      "keys": "ivy, vine, creeper, moss wall",
+      "values": "climbing, green, overgrowth, wall, ancient, organic"
+    },
+    {
+      "id": "med_kits",
+      "parent": "medical_health",
+      "keys": "medkit, first aid kit, bandage, syringe",
+      "values": "healing, supplies, treatment, emergency, white, small"
+    },
+    {
+      "id": "med_consumables",
+      "parent": "medical_health",
+      "keys": "potion, elixir, pill, serum, antidote",
+      "values": "consumable, healing, magic, liquid, boost, remedy"
+    },
+    {
+      "id": "water_fountain",
+      "parent": "water_flow",
+      "keys": "fountain, water jet, basin",
+      "values": "decorative, flowing, stone, plaza, sculpted, fresh"
+    },
+    {
+      "id": "water_well",
+      "parent": "water_flow",
+      "keys": "well, water pump, cistern, trough",
+      "values": "supply, drinking, bucket, rural, stone, source"
+    },
+    {
+      "id": "grave_stones",
+      "parent": "funerary",
+      "keys": "tombstone, gravestone, headstone, grave marker",
+      "values": "memorial, stone, engraving, cemetery, solemn, weathered"
+    },
+    {
+      "id": "coffins",
+      "parent": "funerary",
+      "keys": "coffin, casket, sarcophagus, burial urn",
+      "values": "burial, wooden, ancient, solemn, container, ritual"
+    },
+    {
+      "id": "sci_fi_consoles",
+      "parent": "sci_fi_props",
+      "keys": "console, control panel, terminal, holo screen",
+      "values": "technology, interface, buttons, futuristic, data, glowing"
+    },
+    {
+      "id": "sci_fi_panels",
+      "parent": "sci_fi_props",
+      "keys": "wall panel, tech panel, energy cell, conduit",
+      "values": "modular, futuristic, metal, circuitry, industrial, sleek"
+    },
+    {
+      "id": "sports_balls",
+      "parent": "sports_leisure",
+      "keys": "soccer ball, football, basketball, tennis ball",
+      "values": "round, play, sport, bouncy, outdoor, competition"
+    },
+    {
+      "id": "board_games",
+      "parent": "sports_leisure",
+      "keys": "chess set, dice, playing cards, board game",
+      "values": "table, rules, strategy, leisure, pieces, indoor"
+    },
+    {
+      "id": "clothing_footwear",
+      "parent": "clothing_fabric",
+      "keys": "boot, shoe, sandal, slipper, clog",
+      "values": "feet, leather, wearable, protection, walking, pair"
+    },
+    {
+      "id": "food_drinks",
+      "parent": "food_prepared",
+      "keys": "ale, wine, beer, juice, tea, water flask",
+      "values": "beverage, liquid, tavern, refreshment, bottle, tankard"
+    },
+    {
+      "id": "lighting_outdoor",
+      "parent": "lighting_source",
+      "keys": "street lamp, streetlight, floodlight, torch pole",
+      "values": "outdoor, illumination, night, public, pole, urban"
+    },
+    {
+      "id": "vehicles_military",
+      "parent": "vehicles_land",
+      "keys": "tank, armored personnel carrier, jeep, armored car",
+      "values": "military, combat, transport, armored, heavy, tracked"
+    },
+    {
+      "id": "ranged_firearms",
+      "parent": "weapons_ranged",
+      "keys": "pistol, rifle, shotgun, sniper, revolver",
+      "values": "gun, firearm, bullet, modern, shooting, lethal"
+    },
+    {
+      "id": "explosives_grenades",
+      "parent": "weapons_explosive",
+      "keys": "grenade, fragmentation grenade, smoke grenade, flashbang",
+      "values": "throwable, explosive, combat, tactical, small, area"
+    },
+    {
+      "id": "explosives_mines",
+      "parent": "weapons_explosive",
+      "keys": "mine, landmine, explosive charge, tripwire",
+      "values": "hidden, trap, explosive, ground, military, detonation"
+    },
+    {
+      "id": "tactic_barriers",
+      "parent": "combat_utility",
+      "keys": "sandbag, barricade, cover, barbed wire",
+      "values": "defense, protection, battlefield, improvised, blocking, tactical"
+    },
+    {
+      "id": "terrain_cliffs",
+      "parent": "nature_terrain",
+      "keys": "cliff, ledge, precipice, rock wall",
+      "values": "steep, height, dangerous, landscape, rocky, vertical"
+    },
+    {
+      "id": "terrain_caves",
+      "parent": "nature_terrain",
+      "keys": "cave, cavern, tunnel, grotto",
+      "values": "underground, dark, enclosed, rocky, natural, exploration"
+    },
+    {
+      "id": "crafting_benches",
+      "parent": "tools_manual",
+      "keys": "crafting bench, workbench, assembly table",
+      "values": "creation, tools, workshop, production, sturdy, surface"
+    }
+  ]
+}

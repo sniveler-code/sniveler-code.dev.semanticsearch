@@ -1,0 +1,389 @@
+{
+	"categories": [
+    {
+      "id": "weapons_melee",
+      "keys": "weapon, melee, blade, strike, armament",
+      "values": "combat, damage, attack, close quarters, strife, engagement"
+    },
+    {
+      "id": "weapons_ranged",
+      "keys": "ranged, firearm, rifle, pistol, shotgun, bow, projectile, shooting, caliber",
+      "values": "distance, precision, tactical, ballistic, archery, fire"
+    },
+    {
+      "id": "weapons_explosive",
+      "keys": "explosive, grenade, mine, bomb, demolition",
+      "values": "blast, damage, dangerous, trap, heavy_ordnance"
+    },
+    {
+      "id": "combat_utility",
+      "keys": "tactical, shield, parry, combat_gear",
+      "values": "defense, battlefield, protection, maneuvering, auxiliary"
+    },
+    {
+      "id": "armor_protective",
+      "keys": "armor, protection, defensive, plate_armor",
+      "values": "defense, safety, resilience, shielding, metallic, heavy_duty"
+    },
+    {
+      "id": "clothing_fabric",
+      "keys": "clothing, apparel, fabric, wearable, tunic",
+      "values": "soft, textile, everyday, civilian, garment, covering"
+    },
+    {
+      "id": "apparel_accessories",
+      "keys": "accessory, belt, pouch, jewelry, cape",
+      "values": "decorative, functional, minor, attachment, wearable"
+    },
+    {
+      "id": "arch_structural",
+      "keys": "building, wall, floor, roof, pillar",
+      "values": "architecture, foundation, construction, exterior, interior, support"
+    },
+    {
+      "id": "arch_elements",
+      "keys": "door, window, gate, stairs, ladder",
+      "values": "passage, interaction, functional, portal, verticality, entry"
+    },
+    {
+      "id": "arch_decor",
+      "keys": "trim, molding, statue, relief, column",
+      "values": "ornament, aesthetics, architectural, detail, artistic"
+    },
+    {
+      "id": "furniture_seating",
+      "keys": "chair, bench, stool, sofa, throne",
+      "values": "sitting, comfort, rest, interior, living, support"
+    },
+    {
+      "id": "furniture_surfaces",
+      "keys": "table, desk, counter, workbench, shelf",
+      "values": "surface, workspace, flat, wood, interior, horizontal"
+    },
+    {
+      "id": "furniture_storage",
+      "keys": "cabinet, wardrobe, dresser, locker, rack",
+      "values": "organization, enclosure, storage, vertical, furniture, holding"
+    },
+    {
+      "id": "furniture_beds",
+      "keys": "bed, mattress, cot, sleeping_bag",
+      "values": "sleep, rest, bedroom, furniture, soft, domestic"
+    },
+    {
+      "id": "nature_trees",
+      "keys": "tree, log, timber, forest, trunk",
+      "values": "vegetation, botanical, wood, organic, outdoor, environment"
+    },
+    {
+      "id": "nature_plants",
+      "keys": "plant, bush, shrub, flora, foliage",
+      "values": "greenery, garden, wild, organic, ecology, nature"
+    },
+    {
+      "id": "nature_terrain",
+      "keys": "rock, stone, boulder, cliff, ground",
+      "values": "landscape, geological, earth, mountain, natural, background"
+    },
+    {
+      "id": "nature_water",
+      "keys": "water, ocean, river, pond, aquatic",
+      "values": "liquid, environment, sea, nature, flow, hydration"
+    },
+    {
+      "id": "industrial_heavy",
+      "keys": "machinery, engine, turbine, generator, factory",
+      "values": "mechanical, power, heavy, manufacturing, automated, utility"
+    },
+    {
+      "id": "industrial_parts",
+      "keys": "pipe, valve, gear, cable, circuit",
+      "values": "component, infrastructure, technical, system, maintenance"
+    },
+    {
+      "id": "tools_manual",
+      "keys": "tool, manual, repair, utility, hardware",
+      "values": "fix, maintenance, workshop, handyman, construction, device"
+    },
+    {
+      "id": "tools_farming",
+      "keys": "farm, harvest, agriculture, garden, tool",
+      "values": "organic, field, manual, rural, production"
+    },
+    {
+      "id": "food_organic",
+      "keys": "food, vegetable, fruit, meat, raw",
+      "values": "sustenance, nutrition, organic, harvest, ingredient, nature"
+    },
+    {
+      "id": "food_prepared",
+      "keys": "meal, drink, beverage, ration, cooked",
+      "values": "consumption, restoration, kitchen, provision, health"
+    },
+    {
+      "id": "medical_health",
+      "keys": "medical, healing, restoration, medicine, bandage, syringe, splint, clinic, kit",
+      "values": "health, recovery, clinic, first aid, vitality, rescue"
+    },
+    {
+      "id": "chemical_substances",
+      "keys": "chemical, toxic, poison, fuel, liquid",
+      "values": "laboratory, science, substance, dangerous, industrial"
+    },
+    {
+      "id": "magic_arcane",
+      "keys": "magic, spell, mana, enchanted, arcane",
+      "values": "mystical, power, supernatural, fantasy, ethereal, energy"
+    },
+    {
+      "id": "magic_ritual",
+      "keys": "ritual, rune, altar, artifact, cult",
+      "values": "ancient, spiritual, occult, myth, worship, holy"
+    },
+    {
+      "id": "electronics_tech",
+      "keys": "electronic, digital, computer, terminal, screen, monitor, hologram, tech",
+      "values": "technology, hardware, signal, data, information, automation"
+    },
+    {
+      "id": "electronics_power",
+      "keys": "power, battery, energy, electric, charging",
+      "values": "electricity, source, fuel, current, utility"
+    },
+    {
+      "id": "containers_rigid",
+      "keys": "box, chest, crate, barrel, vault",
+      "values": "inventory, heavy, wood, metal, loot, protection"
+    },
+    {
+      "id": "containers_flexible",
+      "keys": "bag, sack, pouch, backpack, carrier",
+      "values": "portable, fabric, leather, travel, lightweight, soft"
+    },
+    {
+      "id": "debris_waste",
+      "keys": "debris, rubble, trash, scrap, broken",
+      "values": "destruction, discarded, ruins, abandoned, mess, decay"
+    },
+    {
+      "id": "vehicles_land",
+      "keys": "vehicle, transport, car, truck, bus, train, motorcycle, bike, cart",
+      "values": "movement, travel, logistics, mechanical, wheel, speed"
+    },
+    {
+      "id": "vehicles_air_sea",
+      "keys": "ship, aircraft, boat, plane, vessel",
+      "values": "navigation, travel, aquatic, flight, carrier, ocean"
+    },
+    {
+      "id": "quest_items",
+      "keys": "key, quest, objective, evidence, document",
+      "values": "progression, important, valuable, interaction, story, lore"
+    },
+    {
+      "id": "resources_raw",
+      "keys": "ore, mineral, coal, log, material",
+      "values": "mining, resource, crafting, raw, substance, stock"
+    },
+    {
+      "id": "resources_refined",
+      "keys": "ingot, plank, fabric, leather, paper",
+      "values": "processed, material, production, ingredient, workshop, refined"
+    },
+    {
+      "id": "characters_humanoid",
+      "keys": "character, human, npc, avatar, body",
+      "values": "entity, player, anatomy, living, biological, society"
+    },
+    {
+      "id": "characters_creatures",
+      "keys": "creature, monster, animal, beast, entity",
+      "values": "wild, organic, biological, enemy, companion, nature"
+    },
+    {
+      "id": "lighting_source",
+      "keys": "light, torch, candle, lamp, lantern",
+      "values": "illumination, visibility, emission, atmosphere, brightness"
+    },
+    {
+      "id": "lighting_fx",
+      "keys": "glow, flare, neon, laser, beam",
+      "values": "visual_effects, ambiance, mood, signal, tech, emission"
+    },
+    {
+      "id": "audio_elements",
+      "keys": "audio, sound, speaker, siren, alarm",
+      "values": "auditory, signal, feedback, acoustic, broadcast, volume"
+    },
+    {
+      "id": "ui_elements",
+      "keys": "interface, button, icon, menu, canvas",
+      "values": "interaction, user_experience, display, software, navigation"
+    },
+    {
+      "id": "military_tactical",
+      "keys": "military, army, tactical, scout, target",
+      "values": "warfare, combat, operation, specialized, operational"
+    },
+    {
+      "id": "ruins_ancient",
+      "keys": "ruin, relic, ancient, history, tomb",
+      "values": "archaeology, legacy, civilization, forgotten, weathered"
+    },
+    {
+      "id": "space_futuristic",
+      "keys": "space, scifi, alien, galaxy, satellite",
+      "values": "future, cosmic, advanced, exploration, interstellar, hi tech"
+    },
+    {
+      "id": "domestic_kitchen",
+      "keys": "kitchen, cooking, plate, pan, kettle",
+      "values": "household, domestic, eating, preparation, common, daily"
+    },
+    {
+      "id": "domestic_utility",
+      "keys": "broom, bucket, tub, washbasin, cleaning",
+      "values": "maintenance, household, service, water, utility"
+    },
+    {
+      "id": "landscape_elements",
+      "keys": "mountain, desert, island, cave, valley",
+      "values": "geography, horizon, world, environment, background, natural"
+    },
+    {
+      "id": "robotics_automation",
+      "keys": "robot, drone, mech, android, servo, automaton, actuator",
+      "values": "automation, autonomous, mechanical, programmable, precision, artificial"
+    },
+    {
+      "id": "fx_particles",
+      "keys": "particle, smoke, spark, dust, ember, trail, plume",
+      "values": "vfx, atmosphere, emission, motion, transient, glow"
+    },
+    {
+      "id": "fx_explosions",
+      "keys": "explosion, blast, shockwave, detonation, muzzle, burst",
+      "values": "impact, destruction, violent, sudden, damage, area"
+    },
+    {
+      "id": "fx_decals",
+      "keys": "decal, scorch, stain, footprint, splatter, graffiti",
+      "values": "surface, mark, residue, trace, overlay, weathering"
+    },
+    {
+      "id": "weather_effects",
+      "keys": "weather, rain, snow, fog, cloud, storm, thunder",
+      "values": "climate, atmosphere, season, precipitation, wind, dynamic"
+    },
+    {
+      "id": "nature_fungus",
+      "keys": "mushroom, fungus, toadstool, mold, lichen, spore",
+      "values": "decay, forest, organic, damp, small, wilderness"
+    },
+    {
+      "id": "nature_flowers",
+      "keys": "flower, blossom, bloom, petal, rose, tulip, daisy",
+      "values": "garden, colorful, fragrant, delicate, spring, decorative"
+    },
+    {
+      "id": "nature_grass",
+      "keys": "grass, fern, moss, ivy, vine, weed, algae",
+      "values": "ground_cover, green, wild, creeping, vegetation, soft"
+    },
+    {
+      "id": "loot_collectibles",
+      "keys": "loot, collectible, pickup, token, treasure, prize",
+      "values": "reward, acquisition, progression, shiny, valuable, gameplay"
+    },
+    {
+      "id": "interaction_props",
+      "keys": "switch, lever, button, dial, valve, crank, handle",
+      "values": "activation, mechanism, control, input, response, gameplay"
+    },
+    {
+      "id": "traps_hazards",
+      "keys": "trap, spike, snare, hazard, dart, saw, trapdoor",
+      "values": "danger, damage, ambush, lethal, mechanism, dungeon"
+    },
+    {
+      "id": "checkpoints_waypoints",
+      "keys": "checkpoint, waypoint, marker, spawn, beacon, anchor",
+      "values": "navigation, objective, location, guidance, respawn, target"
+    },
+    {
+      "id": "portals_teleports",
+      "keys": "portal, teleport, gateway, rift, wormhole, stargate",
+      "values": "transport, magical, instant, travel, dimensional, sci_fi"
+    },
+    {
+      "id": "destructible_props",
+      "keys": "destructible, breakable, fragile, barrel, crate, glass",
+      "values": "damage, physics, destruction, impact, debris, interactive"
+    },
+    {
+      "id": "music_instruments",
+      "keys": "instrument, lute, flute, drum, harp, piano, bell",
+      "values": "music, sound, performance, melody, rhythm, craft"
+    },
+    {
+      "id": "signage_labels",
+      "keys": "sign, signage, label, plaque, billboard, poster, arrow",
+      "values": "information, direction, warning, advertisement, text, marker"
+    },
+    {
+      "id": "arch_roofs",
+      "keys": "roof, tile, shingle, thatch, dome, spire, chimney",
+      "values": "architecture, top, shelter, structure, covering, skyline"
+    },
+    {
+      "id": "arch_fencing",
+      "keys": "fence, railing, hedge, palisade, bollard, barrier",
+      "values": "boundary, enclosure, safety, perimeter, division, outdoor"
+    },
+    {
+      "id": "arch_doors",
+      "keys": "door, doorway, gate, hatch, trapdoor, archway",
+      "values": "entrance, passage, access, threshold, opening, closure"
+    },
+    {
+      "id": "vehicles_parts",
+      "keys": "wheel, tire, chassis, propeller, track, axle",
+      "values": "machine, mechanical, transport, component, motion, repair"
+    },
+    {
+      "id": "sci_fi_props",
+      "keys": "hologram, laser, plasma, mech, cyborg, spaceship, drone",
+      "values": "futuristic, technology, energy, advanced, alien, synthetic"
+    },
+    {
+      "id": "military_ordnance",
+      "keys": "shell, rocket, missile, ammo, ammunition, artillery, warhead",
+      "values": "explosive, warfare, combat, destruction, projectile, tactical"
+    },
+    {
+      "id": "sports_leisure",
+      "keys": "ball, racket, net, dice, kite, board game",
+      "values": "play, competition, recreation, fun, rules, leisure"
+    },
+    {
+      "id": "water_flow",
+      "keys": "fountain, well, aqueduct, waterfall, stream, pipe",
+      "values": "water, flow, liquid, source, supply, hydraulic"
+    },
+    {
+      "id": "funerary",
+      "keys": "grave, tombstone, coffin, crypt, mausoleum, urn",
+      "values": "death, burial, memorial, solemn, ancient, ritual"
+    },
+    {
+      "id": "art_media",
+      "keys": "painting, sculpture, mural, tapestry, statue, fresco",
+      "values": "art, culture, decoration, expressive, heritage, aesthetic"
+    },
+    {
+      "id": "crafting_stations",
+      "keys": "workbench, anvil, forge, furnace, loom, cauldron",
+      "values": "crafting, production, workshop, creation, tools, assembly"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Tab label="Embedding" icon-image="project://database/Packages/sniveler-code.dev.semanticsearch/Editor/Templates/Icons/Plugs.png?fileID=2800000&amp;guid=d785cef179b166b42af110872f7ad57e&amp;type=3#Plugs" style="flex-grow: 1;">
+        <ui:VisualElement name="Root" style="flex-grow: 1; margin-top: 15px; margin-right: 10px; margin-bottom: 5px; margin-left: 10px; flex-direction: row;">
+            <ui:VisualElement name="Assets" style="flex-grow: 1; width: 50%;">
+                <ui:Label text="Assets" style="-unity-text-align: upper-right; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; background-color: rgba(0, 0, 0, 0.08);"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="Settings" style="flex-grow: 1; width: 50%;">
+                <ui:Label text="Settings" style="-unity-text-align: upper-right; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; background-color: rgba(0, 0, 0, 0.08);"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:Tab>
+</ui:UXML>

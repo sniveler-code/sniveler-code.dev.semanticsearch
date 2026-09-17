@@ -1,0 +1,21 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Tab label="Prefabs" icon-image="project://database/Packages/sniveler-code.dev.semanticsearch/Editor/Templates/Icons/Hammer.png?fileID=2800000&amp;guid=f4e36fd94783d6a4fb3cc07c9c35e6b3&amp;type=3#Hammer" style="flex-grow: 1; flex-shrink: 0;">
+        <ui:VisualElement name="" style="margin-top: 15px; margin-right: 10px; margin-bottom: 5px; margin-left: 10px; flex-grow: 1;">
+            <ui:VisualElement style="flex-direction: row; flex-shrink: 0; align-items: flex-start;">
+                <ui:VisualElement style="flex-grow: 1; align-items: stretch; justify-content: flex-start; flex-shrink: 0; height: 20px;">
+                    <ui:VisualElement name="PropertyContainer" style="flex-shrink: 0; flex-grow: 1; height: 24px;"/>
+                    <ui:Label text="Click check for scan project for new or modified assets" name="Outdated" style="-unity-text-align: upper-right; flex-grow: 1;"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionButtons" style="flex-grow: 0; width: 100px; flex-shrink: 0; align-items: center;">
+                    <ui:Button text="Check" name="CheckButton" tooltip="Scan project for new or modified assets that are not yet indexed." style="-unity-text-align: middle-right; width: 90px;">
+                        <ui:Image name="" source="project://database/Packages/sniveler-code.dev.semanticsearch/Editor/Templates/Icons/Fan.png?fileID=2800000&amp;guid=4886003c71627d643818b58ed7c40c14&amp;type=3#Fan" style="height: 20px; width: 20px;"/>
+                    </ui:Button>
+                    <ui:Button text="Index" name="IndexButton" tooltip="Process outdated assets through the AI model and save vectors to SQLite." enable-rich-text="false" enabled="false" style="-unity-text-align: middle-right; width: 90px;">
+                        <ui:Image name="" source="project://database/Packages/sniveler-code.dev.semanticsearch/Editor/Templates/Icons/HeadCircuit.png?fileID=2800000&amp;guid=427a0a08b42de664097db9fbb7575b5f&amp;type=3#HeadCircuit" style="height: 20px; width: 20px;"/>
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="ContentContainer" style="flex-grow: 1; margin-top: 10px; flex-shrink: 0;"/>
+        </ui:VisualElement>
+    </ui:Tab>
+</ui:UXML>
