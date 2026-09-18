@@ -214,6 +214,21 @@ M15 DONE (standalone commit + push):
     int/EntityId/Object overloads per XML) — another reason for the file walk.
 - NEXT: L15 (dead/legacy code cleanup), then L16/L17 packaging+test items.
 
+L15 DONE (standalone commit + push):
+- Deleted Editor/Core/Storage/ISemanticStorage.cs (+meta) — only held ISemanticStorage2,
+  zero references (SqliteStorage implements the sub-interfaces directly).
+- EmbeddingModule: removed both Status.UnregisterMessage("e_general") (never registered);
+  GetVectorsAsync throw DataException -> InvalidOperationException; using System.Data dropped.
+- MiniTokenizer: BuildVocabulary throw DataException -> InvalidOperationException;
+  using System.Data -> using System.
+- SemanticSearchEditor: removed [SerializeField] windowStyleSheet + its null-guard branch
+  (EditorWindow fields are never persisted — field could only ever be null).
+- Stale findings (no change): _technicalNoiseRegex is ALREADY static readonly;
+  MiniContainer.Resolve last-wins is ALREADY documented ("newest registration").
+- NEXT: L17 (guard-tests for storage invariants). L16 = owner/store tasks (screenshots).
+- CONVENTIONS: package .editorconfig adopted (underscore fields, Allman, LF); vendored
+  SQLite port files keep upstream formatting.
+
 Paid/store version (user decision):
 - Install is now .unitypackage ONLY (no git URL in user-facing docs).
 - README: CI badge removed; Quick Start step 1 = Assets → Import Package → Custom Package

@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System;
+using System.Collections.Generic;
 using Unity.InferenceEngine.Tokenization;
 using Unity.InferenceEngine.Tokenization.Decoders;
 using Unity.InferenceEngine.Tokenization.Mappers;
@@ -88,7 +88,7 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Embedding.MiniLM
             var vocab = config["model"]["vocab"] as JObject;
 
             foreach ((string value, JToken id) in vocab!)
-                output[value] = id?.Value<int>() ?? throw new DataException($"No id for value {value}");
+                output[value] = id?.Value<int>() ?? throw new InvalidOperationException($"No id for value {value}");
 
             if (config["added_tokens"] is JArray addedTokens)
             {

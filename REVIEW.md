@@ -322,15 +322,26 @@ the exact construction Sentis's own `HuggingFaceParser.BuildTruncator` uses for 
 `"longest_first"` strategy (verified against the installed package source, 2.6.1). No behavior
 change; the hardcoded `128` remains M5.
 
-### L15 · ⚪ [CODE] Dead/legacy items
-- `ISemanticStorage2` — never referenced.
-- `EmbeddingModule` unregisters message key `"e_general"` which is never registered.
-- `using System.Data;` in `EmbeddingModule`/`MiniProcessor` just for `DataException` — prefer
-  `InvalidOperationException`.
-- `[SerializeField] private StyleSheet windowStyleSheet;` in `SemanticSearchEditor` — documented
-  as legacy; fine, but consider removing in 1.1 if nothing uses it.
-- `NamingUtility._technicalNoiseRegex` is non-static (all other regexes are static).
-- `MiniContainer.Resolve` uses `list.Last()` (last registration wins) — document or enforce.
+### L15 · ⚪ [CODE] Dead/legacy items — ✅ FIXED
+- **`ISemanticStorage2` removed** — the file contained only this interface (no v1 existed) and
+  had zero references (`SqliteStorage` implements the sub-interfaces directly, not the
+  combined contract). File + meta deleted.
+- **`e_general` unregisters removed** — both `Status.UnregisterMessage("e_general")` calls in
+  `EmbeddingModule.OnPropertyChange` deleted; no `RegisterMessage("e_general")` exists
+  anywhere, so the unregisters were no-ops.
+- **`DataException` → `InvalidOperationException`** — the two precondition throws
+  (`EmbeddingModule.GetVectorsAsync`: "Embedding not setup"; `MiniTokenizer.BuildVocabulary`:
+  "No id for value {value}") now use the standard .NET type; `using System.Data;` dropped
+  from both files (`using System;` added to `MiniTokenizer`). No first-party code caught
+  `DataException`, so no catch-site changes were needed.
+- **`windowStyleSheet` removed** — `SemanticSearchEditor` is an `EditorWindow`; Unity does not
+  persist `EditorWindow` field values, so the `[SerializeField]` override could never be
+  assigned and the null-guard branch was dead. The package stylesheet path
+  (`TemplateProvider.LoadStyleSheetByName("SemanticSearchEditor")`) is untouched.
+- **`_technicalNoiseRegex`** — finding stale: the field is already `static readonly` (matches
+  all other regexes); no change needed.
+- **`MiniContainer.Resolve` last-wins** — already documented on both overloads ("Resolves the
+  newest registration of T"); the behavior is intentional, no change needed.
 
 ### L16 · ⚪ [PACKAGING] Samples details
 - `Documentation~/images/` is empty (screenshots are an open owner task) — required for the store
@@ -390,7 +401,8 @@ Also: `changelogUrl`/`documentationUrl` in `package.json` point to
 5. 🟡→✅ ~~M7–M10 correctness/perf fixes~~ **Done** (M5 ✅, M6 ❌ retracted — no race
    exists; M7–M10 ✅).
 6. 🟡→✅ ~~M13 (DI order), M14 (DB path), M12 (tooltip), M15 (SQLite native loader).~~ **Done**.
-7. ⚪ L15 dead code cleanup; capture screenshots (owner task); finalize `LICENSE.md` text.
+7. ⚪→✅ ~~L15 dead code cleanup~~ **Done** (see L15 — 4 items removed, 2 findings stale).
+   Remaining from this line: capture screenshots (owner task); finalize `LICENSE.md` text.
 8. Re-run the 30 EditMode tests + a manual pass: import sample → Check → Index → search
    "heavy axe" → verify score percentages are sane (should read ~50–95%, not thousands).
 

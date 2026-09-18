@@ -21,13 +21,6 @@ namespace SnivelerCode.SemanticSearch.Editor
     /// <summary>Main window hosting the search, embedding and prefab tabs.</summary>
     public sealed class SemanticSearchEditor : EditorWindow
     {
-        /// <summary>
-        /// Legacy override assigned manually in the Inspector. The package style sheet
-        /// (Editor/Templates/Uxml/SemanticSearchEditor.uss) is always applied on top,
-        /// so the window looks correct even when this field is null.
-        /// </summary>
-        [SerializeField] private StyleSheet windowStyleSheet;
-
         private readonly MiniContainer _container = new();
 
         /// <summary>Opens the Semantic Search window.</summary>
@@ -68,9 +61,6 @@ namespace SnivelerCode.SemanticSearch.Editor
         /// <summary>Applies the package style sheet and the optional Inspector override.</summary>
         private void ApplyWindowStyleSheets()
         {
-            if (windowStyleSheet != null)
-                rootVisualElement.styleSheets.Add(windowStyleSheet);
-
             StyleSheet packageStyle = TemplateProvider.LoadStyleSheetByName("SemanticSearchEditor");
             if (packageStyle != null)
                 rootVisualElement.styleSheets.Add(packageStyle);

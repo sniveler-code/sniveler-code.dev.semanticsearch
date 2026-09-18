@@ -25,6 +25,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   tokenizer files out of the package license (they remain Apache-2.0).
 
 ### Changed
+- **Dead code cleanup** (REVIEW L15) — removed the unused `ISemanticStorage2` interface, two
+  no-op `"e_general"` status-message unregisters, and the never-assignable
+  `windowStyleSheet` serialized field on the editor window; `DataException` precondition
+  throws replaced with `InvalidOperationException`.
 - **Index database path** — the SQLite index location is now derived from the project path
   (`Application.dataPath/../Library/`) instead of the process working directory, and the
   `Library` directory is ensured before opening (REVIEW M14). Same path in every normal

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -68,7 +67,6 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Embedding
             {
                 await Task.Yield();
 
-                _facade.Status.UnregisterMessage("e_general");
                 if (property.Equals(_model.Model))
                 {
                     await OnModelChanged((AssetProperty) property);
@@ -79,7 +77,6 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Embedding
 
                     var asset = (AssetProperty) property;
                     _processor.SetTokenizer((TextAsset) asset.Value, _model.MaxLength.Value);
-                    _facade.Status.UnregisterMessage("e_general");
                     _facade.Status.UnregisterMessage(ErrorKey);
                     _modelView.ToggleError(_model.Vocab.Name, false);
                 }
@@ -174,7 +171,7 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Embedding
         /// <summary>Computes embeddings for the given texts.</summary>
         public Task<float[][]> GetVectorsAsync(string[] texts, CancellationToken ct = default)
         {
-            if (!IsValid) throw new DataException("Embedding not setup");
+            if (!IsValid) throw new InvalidOperationException("Embedding not setup");
 
             if (texts == null || texts.Length == 0)
                 return Task.FromResult(Array.Empty<float[]>());
