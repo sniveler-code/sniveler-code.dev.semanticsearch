@@ -1,6 +1,6 @@
 {
   "name": "sniveler-code.dev.semanticsearch",
-  "version": "1.0.0",
+  "version": "1.0.22",
   "displayName": "AI Semantic Search",
   "description": "Local AI-powered asset search using Unity Sentis and SQLite.",
   "unity": "2022.3",
