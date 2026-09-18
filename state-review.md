@@ -202,8 +202,12 @@ M15 DONE (standalone commit + push):
   macOS = no-op (system libsqlite3.dylib via default resolution).
 - Verified by compiling the loader against real editor reference assemblies
   (D:/Unity/Editor/6000.5.2f1, netstandard2.1): clean. Two API facts established:
-  * System.Runtime.Loader.NativeLibrary is NOT in the .NET Standard 2.1 profile
-    (CS0234) — SetDllImportResolver is a non-starter.
+  * NativeLibrary (System.Runtime.InteropServices namespace, System.Runtime.NativeLibrary
+    assembly) is .NET Core 3.0+ only — NOT in the .NET Standard 2.1 profile: minimal
+    SetDllImportResolver call fails CS0103 against the official netstandard2.1 targeting
+    pack, same code compiles on net9.0 (control). Plain DllImport P/Invoke IS fully
+    supported in 2.1 — the fix uses only that. (First test iteration used the wrong
+    namespace, System.Runtime.Loader; corrected, conclusion unchanged.)
   * UnityEditor.EditorAssembly does NOT exist in Unity 6.5.2f1 (CS0103 + metadata scan
     of all editor managed DLLs + XML docs) — asmdef-based path lookup unavailable.
   * AssetDatabase.GetAssetPath(string guid) overload is GONE in 6.5.2f1 (only

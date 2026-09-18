@@ -302,13 +302,17 @@ path/git (Packages) installs. `SqliteStorage`'s constructor calls
 `EnsureLibraryLoaded()`; it is idempotent and non-fatal (on failure it logs a warning and
 default resolution still applies). macOS is a no-op (the system `libsqlite3.dylib` is found
 by default resolution).
-**Why not `NativeLibrary.SetDllImportResolver`:** it is .NET Core 3.0+ only and does not
-exist in the .NET Standard 2.1 profile the editor compiles against — verified by compiling
-the loader against the real editor reference assemblies (`UnityEditor.dll`,
-`UnityEngine.dll` from 6000.5.2f1, netstandard2.1): the `System.Runtime.Loader` namespace
-is absent, and `UnityEditor.EditorAssembly` (the obvious way to find the package asmdef)
-does not exist in this build either (verified via metadata scan of the editor's managed
-DLLs). The `LoadLibrary` preload works in every Unity version.
+**Why not `NativeLibrary.SetDllImportResolver`:** `NativeLibrary` (namespace
+`System.Runtime.InteropServices`, assembly `System.Runtime.NativeLibrary.dll`) is a
+.NET Core 3.0+ API and does not exist in the .NET Standard 2.1 profile the editor
+compiles against — verified by compiling a minimal `SetDllImportResolver` call against
+the official netstandard2.1 targeting pack (CS0103: name does not exist) with the same
+code compiling on net9.0 as a control; the loader itself was additionally compiled
+against the real editor reference assemblies (`UnityEditor.dll`, `UnityEngine.dll` from
+6000.5.2f1). Plain `DllImport` P/Invoke — which this fix uses (the `kernel32!LoadLibrary`
+call) — is fully supported in 2.1. `UnityEditor.EditorAssembly` (the obvious way to find
+the package asmdef) does not exist in this build either (verified via metadata scan of
+the editor's managed DLLs). The `LoadLibrary` preload works in every Unity version.
 
 ### L18 · ⚪ [WARNING] Obsolete API usage — ✅ FIXED
 `MiniTokenizer.cs:36` used `LongestFirstTruncator`, which is `[Obsolete("Use GenericTruncator instead")]`
