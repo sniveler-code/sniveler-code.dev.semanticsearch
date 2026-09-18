@@ -172,6 +172,10 @@ M11 DONE (standalone commit + push):
   removed "Prefabs/Audios tab" (Audios removed pre-release).
 - NEXT: M12 (Backend tooltip copy-paste bug).
 
+M12 DONE (standalone commit + push):
+- EmbeddingModel.Backend.Tooltip -> real backend description (was the Vocab tooltip text).
+- NEXT: M13 (order-dependent DI in SemanticSearchEditor).
+
 Paid/store version (user decision):
 - Install is now .unitypackage ONLY (no git URL in user-facing docs).
 - README: CI badge removed; Quick Start step 1 = Assets → Import Package → Custom Package

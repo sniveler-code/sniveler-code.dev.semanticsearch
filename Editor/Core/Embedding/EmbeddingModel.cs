@@ -38,7 +38,8 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Embedding
             Name = "backend",
             DefaultValue = BackendType.GPUCompute,
             Value = BackendType.GPUCompute,
-            Tooltip = "The vocabulary file used by the BERT tokenizer to encode text."
+            Tooltip = "The Sentis compute backend used for inference. GPU is fastest when your " +
+                      "hardware supports compute shaders; CPU is the portable fallback."
         };
     }
 }

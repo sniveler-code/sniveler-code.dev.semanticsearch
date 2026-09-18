@@ -266,9 +266,11 @@ and was kept. Also fixed two stale troubleshooting lines found in the same pass:
 field now mentions `.sentis` as well as `.onnx`, and the removed **Audios** tab was taken out
 of the Check instructions.
 
-### M12 · 🟡 [DOC/UX] `Backend` tooltip copy-paste bug
-`EmbeddingModel.Backend.Tooltip` says "The vocabulary file used by the BERT tokenizer to encode
-the text." — wrong property's tooltip.
+### M12 · 🟡 [DOC/UX] `Backend` tooltip copy-paste bug — ✅ FIXED
+**Fixed:** `EmbeddingModel.Backend.Tooltip` now describes the compute backend ("The Sentis
+compute backend used for inference. GPU is fastest when your hardware supports compute
+shaders; CPU is the portable fallback.") instead of the Vocab tooltip it had been copy-pasted
+from.
 
 ### M13 · 🟡 [ARCH] Order-dependent DI in `SemanticSearchEditor`
 `PrefabsModule`'s constructor calls `container.Bind<PrefabsResultView>()`; `SearchModule`'s

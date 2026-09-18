@@ -25,6 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   tokenizer files out of the package license (they remain Apache-2.0).
 
 ### Changed
+- **Backend tooltip fixed** — the Embedding tab's **Backend** property showed the Vocab
+  property's tooltip (copy-paste); it now describes the compute backend (REVIEW M12).
 - **Sensitivity docs aligned with the implemented default** — the default is 25 (loose,
   recall-first) as the code has always shipped it; README/configure/getting-started/
   troubleshooting no longer claim a 70 default or a 60–70 "sweet spot" and now state the
