@@ -25,6 +25,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   tokenizer files out of the package license (they remain Apache-2.0).
 
 ### Changed
+- **Order-independent service registration** — `PrefabsResultView` is now bound in
+  `RegisterContainer()` instead of `PrefabsModule`'s constructor, so the search tab's
+  `ISearchResult[]` no longer depends on the module resolve order (REVIEW M13).
 - **Backend tooltip fixed** — the Embedding tab's **Backend** property showed the Vocab
   property's tooltip (copy-paste); it now describes the compute backend (REVIEW M12).
 - **Sensitivity docs aligned with the implemented default** — the default is 25 (loose,

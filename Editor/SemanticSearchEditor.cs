@@ -89,6 +89,11 @@ namespace SnivelerCode.SemanticSearch.Editor
 
             _container.Bind<PrefabsModule>();
             _container.Bind<PrefabsFacade>();
+            // REVIEW M13: the result view is registered here (not in PrefabsModule's
+            // constructor), so every ISearchResult implementation exists before any module
+            // is resolved — the SearchModule's ISearchResult[] no longer depends on the
+            // resolve order in CreateGUI().
+            _container.Bind<PrefabsResultView>();
 
             _container.Bind<SearchFacade>();
             _container.Bind<SearchModule>();

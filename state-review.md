@@ -176,6 +176,14 @@ M12 DONE (standalone commit + push):
 - EmbeddingModel.Backend.Tooltip -> real backend description (was the Vocab tooltip text).
 - NEXT: M13 (order-dependent DI in SemanticSearchEditor).
 
+M13 DONE (standalone commit + push):
+- Bind<PrefabsResultView>() moved PrefabsModule ctor -> SemanticSearchEditor.RegisterContainer
+  (with M13 comment). PrefabsModule ctor: IMiniContainer param removed (only container
+  constructs it — verified no direct `new PrefabsModule` anywhere).
+- Note: PrefabsResultView is the ONLY concrete ISearchResult (audio removed pre-release) —
+  the search results tab IS the prefab rows view.
+- NEXT: M14 (DB path via Directory.GetCurrentDirectory()).
+
 Paid/store version (user decision):
 - Install is now .unitypackage ONLY (no git URL in user-facing docs).
 - README: CI badge removed; Quick Start step 1 = Assets → Import Package → Custom Package

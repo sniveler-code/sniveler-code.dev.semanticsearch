@@ -272,11 +272,13 @@ compute backend used for inference. GPU is fastest when your hardware supports c
 shaders; CPU is the portable fallback.") instead of the Vocab tooltip it had been copy-pasted
 from.
 
-### M13 · 🟡 [ARCH] Order-dependent DI in `SemanticSearchEditor`
-`PrefabsModule`'s constructor calls `container.Bind<PrefabsResultView>()`; `SearchModule`'s
-constructor resolves `ISearchResult[]`. This only works because `Resolve<PrefabsModule>()` is
-called before `Resolve<SearchModule>()` in `CreateGUI()`. Move the `Bind<PrefabsResultView>()`
-into `RegisterContainer()` so the registration no longer depends on call order.
+### M13 · 🟡 [ARCH] Order-dependent DI in `SemanticSearchEditor` — ✅ FIXED
+**Fixed:** `Bind<PrefabsResultView>()` moved from `PrefabsModule`'s constructor into
+`SemanticSearchEditor.RegisterContainer()` — every `ISearchResult` implementation is now
+registered before any module is resolved, so `SearchModule`'s `ISearchResult[]` no longer
+depends on the resolve order in `CreateGUI()`. The now-unused `IMiniContainer` constructor
+parameter was removed from `PrefabsModule` (it is only ever constructed by the container;
+no direct constructions exist).
 
 ### M14 · 🟡 [RELIABILITY] DB path via `Directory.GetCurrentDirectory()`
 `SqliteStorage.dbPath` = `CWD + "/Library/SnivelerCode_SemanticIndex.db"`. In the Editor CWD is the

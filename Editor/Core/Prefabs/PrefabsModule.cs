@@ -30,8 +30,8 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Prefabs
 
         public VisualElement Content => _view.Content;
 
-        /// <summary>Creates the view and registers the result view.</summary>
-        public PrefabsModule(IMiniContainer container, IPrefabsFacade facade)
+        /// <summary>Creates the view.</summary>
+        public PrefabsModule(IPrefabsFacade facade)
         {
             _facade = facade;
             _dbInfo.Check(_facade.Storage, moduleType);
@@ -51,7 +51,6 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Prefabs
             };
 
             _view = new PrefabsView(_model);
-            container.Bind<PrefabsResultView>();
             _facade.Status.AddMessageListener(EmbeddingModule.ErrorKey, OnMessageProcessed);
             UpdateStatusState();
         }
