@@ -25,6 +25,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   tokenizer files out of the package license (they remain Apache-2.0).
 
 ### Changed
+- **Index database path** — the SQLite index location is now derived from the project path
+  (`Application.dataPath/../Library/`) instead of the process working directory, and the
+  `Library` directory is ensured before opening (REVIEW M14). Same path in every normal
+  editor session; no data migration needed.
 - **Order-independent service registration** — `PrefabsResultView` is now bound in
   `RegisterContainer()` instead of `PrefabsModule`'s constructor, so the search tab's
   `ISearchResult[]` no longer depends on the module resolve order (REVIEW M13).

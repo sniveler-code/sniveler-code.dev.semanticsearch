@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
 using SnivelerCode.SemanticSearch.Editor.Core.Property;
+using UnityEngine;
 
 namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
 {
     public sealed partial class SqliteStorage : IDisposable
     {
-        private readonly SQLiteConnection _connection = new(dbPath);
+        private readonly SQLiteConnection _connection;
 
         /// <summary>
         /// Bumped for future schema migrations. Persisted in the properties table
@@ -14,12 +15,20 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
         /// </summary>
         public const int SchemaVersion = 1;
 
-        private static string dbPath => Path.Combine(
-            Directory.GetCurrentDirectory(), "Library", "SnivelerCode_SemanticIndex.db");
+        /// <summary>
+        /// Path of the project-local index database, derived from the project location
+        /// (REVIEW M14) instead of the current working directory, which is only an editor
+        /// convention.
+        /// </summary>
+        private static string dbPath => Path.GetFullPath(Path.Combine(
+            Application.dataPath, "..", "Library", "SnivelerCode_SemanticIndex.db"));
 
         /// <summary>Opens the project-local index database and ensures the schema.</summary>
         public SqliteStorage()
         {
+            Directory.CreateDirectory(Path.GetDirectoryName(dbPath));
+            _connection = new(dbPath);
+
             InitAssets();
             InitProperties();
             InitMetadata();

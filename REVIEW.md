@@ -280,11 +280,14 @@ depends on the resolve order in `CreateGUI()`. The now-unused `IMiniContainer` c
 parameter was removed from `PrefabsModule` (it is only ever constructed by the container;
 no direct constructions exist).
 
-### M14 · 🟡 [RELIABILITY] DB path via `Directory.GetCurrentDirectory()`
-`SqliteStorage.dbPath` = `CWD + "/Library/SnivelerCode_SemanticIndex.db"`. In the Editor CWD is the
-project root today, but that's an implicit contract. Prefer
-`Path.GetFullPath(Path.Combine(Application.dataPath, "..", "Library", "SnivelerCode_SemanticIndex.db"))`
-and `Directory.CreateDirectory` on the `Library` segment for safety.
+### M14 · 🟡 [RELIABILITY] DB path via `Directory.GetCurrentDirectory()` — ✅ FIXED
+**Fixed:** `SqliteStorage.dbPath` is now derived from `Application.dataPath`
+(`Path.GetFullPath(Path.Combine(Application.dataPath, "..", "Library", …))`), so the index
+location no longer depends on the editor's working-directory convention. The constructor
+creates the `Library` directory before opening the connection (no-op when it exists, as it
+always does in a Unity project). The path is identical to before for every normal editor
+session (project root + `/Library/`), and `SqliteStorageTests` (which computes the same
+`<project>/Library/` location from CWD) is unaffected.
 
 ### L18 · ⚪ [WARNING] Obsolete API usage — ✅ FIXED
 `MiniTokenizer.cs:36` used `LongestFirstTruncator`, which is `[Obsolete("Use GenericTruncator instead")]`

@@ -184,6 +184,15 @@ M13 DONE (standalone commit + push):
   the search results tab IS the prefab rows view.
 - NEXT: M14 (DB path via Directory.GetCurrentDirectory()).
 
+M14 DONE (standalone commit + push):
+- SqliteStorage.dbPath: CWD-based -> Application.dataPath-based (Path.GetFullPath,
+  same <project>/Library/ location in every normal editor session); constructor now
+  CreateDirectory(Library) before opening the connection; _connection field init moved
+  into ctor.
+- SqliteStorageTests unaffected (computes the same path from CWD, equal in editor/CI).
+- NEXT: M15 (candidate — DllImport("sqlite3") has no resolver on Windows; M5-M14 done,
+  remaining: M15 + L15 dead code + L16/L17 packaging/test items).
+
 Paid/store version (user decision):
 - Install is now .unitypackage ONLY (no git URL in user-facing docs).
 - README: CI badge removed; Quick Start step 1 = Assets → Import Package → Custom Package
