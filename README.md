@@ -127,4 +127,4 @@ through the importer, which is why the script loads via a `ModelAsset`. Copy the
 See `LICENSE.md` and `THIRD_PARTY_NOTICES.md` in the package root for software and AI-model licensing details.
 
 ---
-Developed by **SnivelerCode** · [GitHub](https://github.com/snivelercode)
+Developed by **SnivelerCode** · [Documentation](https://sniveler-code.github.io/docs_semantic-search.html) · [GitHub](https://github.com/snivelercode)

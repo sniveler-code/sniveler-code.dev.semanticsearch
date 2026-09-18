@@ -30,6 +30,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   tokenizer files out of the package license (they remain Apache-2.0).
 
 ### Changed
+- **Documentation site** — the package documentation is now hosted at
+  <https://sniveler-code.github.io/docs_semantic-search.html> (linked in the README footer).
 - **Dead code cleanup** (REVIEW L15) — removed the unused `ISemanticStorage2` interface, two
   no-op `"e_general"` status-message unregisters, and the never-assignable
   `windowStyleSheet` serialized field on the editor window; `DataException` precondition
