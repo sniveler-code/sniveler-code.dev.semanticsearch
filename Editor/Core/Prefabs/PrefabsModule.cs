@@ -182,7 +182,9 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Prefabs
                     Status = AssetStorageStatus.Checked
                 });
 
-                callback?.Invoke(path, i * 100f / (total - 1));
+                // REVIEW M8: total == 1 would divide by zero (NaN in the progress bar);
+                // a single scanned asset is by definition the last one -> 100%.
+                callback?.Invoke(path, total <= 1 ? 100f : i * 100f / (total - 1));
 
                 if (i % 10 == 0)
                 {

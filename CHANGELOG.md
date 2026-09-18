@@ -42,6 +42,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   behavior unchanged).
 
 ### Fixed
+- **NaN Check progress for a single asset** — `PrefabsModule.UpdateAssetsAsync` divided by
+  `total - 1`, producing NaN in the progress bar when exactly one asset was scanned; now
+  reports 100% in that case, 0→100 mapping unchanged otherwise (REVIEW M8).
 - **Stale asset cache after partial index clear** — `SqliteStorage.ClearIndexes(AssetStorageType)`
   now invalidates the in-memory asset cache (it could otherwise keep serving deleted rows until
   the next write). Guard test added (REVIEW M7).

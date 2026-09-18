@@ -233,9 +233,11 @@ the type overload had no UI call sites (it is public `SqliteStorage` API, not on
 `IAssetsStorage`) — the fix is preventive, so a future "clear all of a type" caller cannot
 serve stale reads.
 
-### M8 · 🟡 [CORRECTNESS] Division by zero in Check progress
-`PrefabsModule.UpdateAssetsAsync`: `callback?.Invoke(path, i * 100f / (total - 1))` → `0/0 = NaN`
-when exactly one asset is new (ProgressBar NaN). Use `total == 0 ? 0f : i * 100f / total`.
+### M8 · 🟡 [CORRECTNESS] Division by zero in Check progress — ✅ FIXED
+**Fixed:** `PrefabsModule.UpdateAssetsAsync` now guards the division: `total <= 1 ? 100f :
+i * 100f / (total - 1)`. A single scanned asset is by definition the last one → 100% instead of
+NaN; the 0→100 mapping for multi-asset scans is unchanged (the original suggestion
+`i * 100f / total` would have shifted the scale so the last asset never reached 100%).
 
 ### M9 · 🟡 [CORRECTNESS] `topTags[0]` on empty Components database
 `ComponentMetadata.ProcessAsync`: if `DatabaseType.Components` has no rows, `results` is empty and

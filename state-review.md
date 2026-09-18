@@ -145,6 +145,12 @@ M7 DONE (standalone commit + push):
   preventive fix for future "clear all of a type" callers.
 - NEXT: M8 (progress division by zero in PrefabsModule.UpdateAssetsAsync).
 
+M8 DONE (standalone commit + push):
+- PrefabsModule.UpdateAssetsAsync: callback now uses total <= 1 ? 100f : i * 100f / (total - 1)
+  (NaN fix; 0->100 mapping preserved for total >= 2; the original M8 suggestion i*100f/total
+  would have shifted the scale — last asset never reaching 100%).
+- NEXT: M9 (topTags[0] on empty Components database).
+
 Paid/store version (user decision):
 - Install is now .unitypackage ONLY (no git URL in user-facing docs).
 - README: CI badge removed; Quick Start step 1 = Assets → Import Package → Custom Package
