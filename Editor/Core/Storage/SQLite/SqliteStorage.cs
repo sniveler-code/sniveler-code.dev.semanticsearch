@@ -7,7 +7,7 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
 {
     public sealed partial class SqliteStorage : IDisposable
     {
-        private readonly SQLiteConnection _connection;
+        private readonly SQLiteConnection connection;
 
         /// <summary>
         /// Bumped for future schema migrations. Persisted in the properties table
@@ -28,7 +28,7 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
         {
             SqliteNativeLoader.EnsureLibraryLoaded();
             Directory.CreateDirectory(Path.GetDirectoryName(dbPath));
-            _connection = new(dbPath);
+            connection = new SQLiteConnection(dbPath);
 
             InitAssets();
             InitProperties();
@@ -37,6 +37,6 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
         }
 
         /// <summary>Closes the database connection.</summary>
-        public void Dispose() => _connection.Close();
+        public void Dispose() => connection.Close();
     }
 }

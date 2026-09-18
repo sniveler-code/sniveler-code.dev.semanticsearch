@@ -10,14 +10,14 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
         /// <summary>Creates the assets table and its indexes.</summary>
         private void InitAssets()
         {
-            _connection.CreateTable<AssetsTable>();
+            connection.CreateTable<AssetsTable>();
 
             const string tableName = nameof(AssetsTable);
-            _connection.CreateIndex(tableName, nameof(AssetsTable.Guid), unique: true);
-            _connection.CreateIndex(tableName, nameof(AssetsTable.StorageType));
-            _connection.CreateIndex(tableName, nameof(AssetsTable.Status));
+            connection.CreateIndex(tableName, nameof(AssetsTable.Guid), unique: true);
+            connection.CreateIndex(tableName, nameof(AssetsTable.StorageType));
+            connection.CreateIndex(tableName, nameof(AssetsTable.Status));
 
-            _connection.CreateIndex(
+            connection.CreateIndex(
                 tableName,
                 new[]
                 {
@@ -31,11 +31,11 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
         /// <summary>Inserts or replaces asset rows in a transaction.</summary>
         public void SetIndexes(AssetsTable[] indexes)
         {
-            _connection.RunInTransaction(() =>
+            connection.RunInTransaction(() =>
             {
                 foreach (AssetsTable index in indexes)
                 {
-                    _connection.InsertOrReplace(index);
+                    connection.InsertOrReplace(index);
                 }
             });
 
@@ -44,22 +44,22 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
 
         /// <summary>Returns assets of a type keyed by GUID.</summary>
         public Dictionary<string, AssetsTable> GetIndexes(AssetStorageType storageType) =>
-            _connection.Table<AssetsTable>()
+            connection.Table<AssetsTable>()
                 .Where(p => p.StorageType == storageType)
                 .ToDictionary(k => k.Guid, v => v);
 
         /// <summary>Returns assets of a type and status.</summary>
         public AssetsTable[] GetIndexes(AssetStorageType type, AssetStorageStatus status) =>
-            _connection.Table<AssetsTable>()
+            connection.Table<AssetsTable>()
                 .Where(p => p.StorageType == type && p.Status == status)
                 .ToArray();
 
         /// <summary>Deletes every asset of a type.</summary>
         public int ClearIndexes(AssetStorageType storageType)
         {
-            int result = _connection.Table<AssetsTable>()
+            int result = connection.Table<AssetsTable>()
                 .Delete(i => i.StorageType == storageType);
-            _connection.Execute("VACUUM");
+            connection.Execute("VACUUM");
             _assetCache = null;
             return result;
         }
@@ -67,9 +67,9 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
         /// <summary>Deletes the given GUIDs.</summary>
         public int ClearIndexes(HashSet<string> guids)
         {
-            int result = _connection.Table<AssetsTable>()
+            int result = connection.Table<AssetsTable>()
                 .Delete(i => guids.Contains(i.Guid));
-            _connection.Execute("VACUUM");
+            connection.Execute("VACUUM");
             _assetCache = null;
             return result;
         }
@@ -77,7 +77,7 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
         /// <summary>Returns all indexed assets, cached between writes.</summary>
         public AssetsTable[] GetIndexes()
         {
-            _assetCache ??= _connection.Table<AssetsTable>()
+            _assetCache ??= connection.Table<AssetsTable>()
                 .Where(a => a.Status == AssetStorageStatus.Indexed)
                 .ToArray();
 
@@ -86,11 +86,11 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
 
         /// <summary>Counts assets of a type.</summary>
         public int GetIndexesCount(AssetStorageType storageType) =>
-            _connection.Table<AssetsTable>().Count(a => a.StorageType == storageType);
+            connection.Table<AssetsTable>().Count(a => a.StorageType == storageType);
 
         /// <summary>Counts assets of a type and status.</summary>
         public int GetIndexesCount(AssetStorageType storageType, AssetStorageStatus status) =>
-            _connection.Table<AssetsTable>().Count(a
+            connection.Table<AssetsTable>().Count(a
                 => a.Status == status && a.StorageType == storageType);
     }
 }

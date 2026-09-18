@@ -8,8 +8,8 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
         /// <summary>Creates the properties table and its unique index.</summary>
         private void InitProperties()
         {
-            _connection.CreateTable<PropertiesTable>();
-            _connection.CreateIndex(
+            connection.CreateTable<PropertiesTable>();
+            connection.CreateIndex(
                 nameof(PropertiesTable),
                 new[]
                 {
@@ -23,7 +23,7 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
         /// <summary>Stores a property value.</summary>
         public void SetProperty(string category, string name, byte[] data)
         {
-            _connection.InsertOrReplace(new PropertiesTable
+            connection.InsertOrReplace(new PropertiesTable
             {
                 Name = name,
                 Category = category,
@@ -34,7 +34,7 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
         /// <summary>Returns all values of a category.</summary>
         public Dictionary<string, byte[]> GetProperties(string category)
         {
-            TableQuery<PropertiesTable> items = _connection.Table<PropertiesTable>()
+            TableQuery<PropertiesTable> items = connection.Table<PropertiesTable>()
                 .Where(p => p.Category == category);
             return items.ToDictionary(p => p.Name, p => p.Data);
         }
