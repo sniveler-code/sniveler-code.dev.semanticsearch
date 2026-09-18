@@ -143,6 +143,10 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Prefabs
             UpdateStatusState();
         }
 
+        /// <summary>Progress percent for item i of total; total &lt;= 1 is 100% by definition (REVIEW M8).</summary>
+        public static float ProgressPercent(int i, int total) =>
+            total <= 1 ? 100f : i * 100f / (total - 1);
+
         /// <summary>Removes stale rows and registers new assets.</summary>
         private async Task<(int removed, int outdated)> UpdateAssetsAsync(Action<string, float> callback = null)
         {
@@ -181,9 +185,8 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Prefabs
                     Status = AssetStorageStatus.Checked
                 });
 
-                // REVIEW M8: total == 1 would divide by zero (NaN in the progress bar);
-                // a single scanned asset is by definition the last one -> 100%.
-                callback?.Invoke(path, total <= 1 ? 100f : i * 100f / (total - 1));
+                // REVIEW M8: ProgressPercent guards total == 1 (was NaN in the progress bar).
+                callback?.Invoke(path, ProgressPercent(i, total));
 
                 if (i % 10 == 0)
                 {

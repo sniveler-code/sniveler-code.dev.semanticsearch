@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Storage-invariant guard tests** (REVIEW L17) — new `GuardTests` class pins the M8 progress
+  NaN guard (formula extracted to `PrefabsModule.ProgressPercent`), the M9 empty category-table
+  similarity behavior, and the M14 project-anchored database path (promoted to
+  `SqliteStorage.DbPath`); `SqliteStorageTests` gains cache-invalidation tests for both
+  `ClearIndexes` overloads (M7).
 - **Quantized sample model** — the sample now ships `MiniLM_uint8.sentis`, a uint8
   weight-quantized build of MiniLM-L6-v2 (~22 MB instead of ~90 MB). The float32 source is
   no longer in the repository — the original float32 weights remain on Hugging Face. The

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using NUnit.Framework;
@@ -194,6 +195,69 @@ namespace SnivelerCode.SemanticSearch.Tests.Editor
 
                 db.MetadataClear(DatabaseType.General);
                 Assert.AreEqual(0, db.MetadataCategory(DatabaseType.General).Count);
+            }
+        }
+
+        /// <summary>ClearIndexes by type must invalidate the asset cache (REVIEW M7).</summary>
+        [Test]
+        public void Assets_ClearIndexesByType_InvalidatesCache()
+        {
+            using (var db = new SqliteStorage())
+            {
+                var row = new AssetsTable
+                {
+                    Guid = "cache1",
+                    Path = "Assets/C.prefab",
+                    Hash = "h1",
+                    StorageType = AssetStorageType.Prefabs,
+                    Status = AssetStorageStatus.Checked,
+                    Vector = new byte[] {1}
+                };
+
+                db.SetIndexes(new[] {row});
+                Assert.AreEqual(1, db.GetIndexes(AssetStorageType.Prefabs).Count, "cache must be warmed");
+
+                Assert.AreEqual(1, db.ClearIndexes(AssetStorageType.Prefabs));
+
+                Assert.AreEqual(0, db.GetIndexes(AssetStorageType.Prefabs).Count,
+                    "cleared type must not be served from the stale cache");
+                Assert.AreEqual(0, db.GetIndexesCount(AssetStorageType.Prefabs));
+            }
+        }
+
+        /// <summary>ClearIndexes by guid set must invalidate the asset cache (REVIEW M7).</summary>
+        [Test]
+        public void Assets_ClearIndexesByGuids_InvalidatesCache()
+        {
+            using (var db = new SqliteStorage())
+            {
+                var one = new AssetsTable
+                {
+                    Guid = "g1",
+                    Path = "Assets/G1.prefab",
+                    Hash = "h1",
+                    StorageType = AssetStorageType.Prefabs,
+                    Status = AssetStorageStatus.Checked,
+                    Vector = new byte[] {1}
+                };
+                var two = new AssetsTable
+                {
+                    Guid = "g2",
+                    Path = "Assets/G2.prefab",
+                    Hash = "h2",
+                    StorageType = AssetStorageType.Prefabs,
+                    Status = AssetStorageStatus.Checked,
+                    Vector = new byte[] {2}
+                };
+
+                db.SetIndexes(new[] {one, two});
+                Assert.AreEqual(2, db.GetIndexes(AssetStorageType.Prefabs).Count);
+
+                Assert.AreEqual(1, db.ClearIndexes(new HashSet<string> {"g1"}));
+
+                Dictionary<string, AssetsTable> after = db.GetIndexes(AssetStorageType.Prefabs);
+                Assert.AreEqual(1, after.Count, "remaining row must be visible after guid clear");
+                Assert.IsTrue(after.ContainsKey("g2"));
             }
         }
     }

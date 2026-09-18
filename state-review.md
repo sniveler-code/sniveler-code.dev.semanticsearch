@@ -229,6 +229,19 @@ L15 DONE (standalone commit + push):
 - CONVENTIONS: package .editorconfig adopted (underscore fields, Allman, LF); vendored
   SQLite port files keep upstream formatting.
 
+L17 DONE (standalone commit + push):
+- SqliteStorage: private dbPath -> public static DbPath (testability; ctor uses it).
+- PrefabsModule: progress formula extracted to public static ProgressPercent(int i, int total);
+  UpdateAssetsAsync calls it (same expression, M8 comment kept).
+- SqliteStorageTests +2: Assets_ClearIndexesByType_InvalidatesCache,
+  Assets_ClearIndexesByGuids_InvalidatesCache (warm cache -> clear -> re-read must be fresh).
+- NEW Tests/Editor/GuardTests.cs (+hand-written .meta, guid 7c2b9e4d...): M8 zero/single
+  total -> 100, multi-total 0..100 span; M9 empty MetadataTable dictionary -> empty
+  Similarity result; M14 DbPath == <project>/Library/SnivelerCode_SemanticIndex.db.
+- All APIs verified from source (signatures/types); isolated dotnet compile skipped (mechanical
+  changes only) — first Unity editor open remains the compile/runtime gate.
+- NEXT: L16 = owner/store tasks (screenshots, export decisions); checklist 8 editor validation.
+
 Paid/store version (user decision):
 - Install is now .unitypackage ONLY (no git URL in user-facing docs).
 - README: CI badge removed; Quick Start step 1 = Assets → Import Package → Custom Package

@@ -353,13 +353,25 @@ change; the hardcoded `128` remains M5.
 - ✅ `vocab.txt` (231 KB) **removed** — redundant: the code reads only `tokenizer.json`
   (vocabulary embedded in its `model.vocab`), and no asset referenced the file's GUID.
 
-### L17 · ⚪ [TESTS]
-9 test classes (~30 EditMode tests) cover vector math, tokenizer, naming, storage, property
-roundtrip, category databases, context config and coverage report. Good coverage of the pure
-logic. ✅ Added (B3 hardening): `NormalizeInPlace_IdempotentForUnitVectors` and
+### L17 · ⚪ [TESTS] — ✅ FIXED
+9 test classes cover vector math, tokenizer, naming, storage, property roundtrip, category
+databases, context config and coverage report. Good coverage of the pure logic.
+✅ Added (B3 hardening): `NormalizeInPlace_IdempotentForUnitVectors` and
 `NormalizeThenDot_EqualsCosineSimilarity` pin the scoring contract at the `VectorMath` level. A
 full `GetVectorsAsync` unit-length assertion would require model-in-the-loop (kept out of
-EditMode). Still missing: guard-tests for M7/M8-level storage invariants.
+EditMode).
+✅ Added (L17) — guard-tests for the M7–M14 fixes:
+- **M7** — `SqliteStorageTests.Assets_ClearIndexesByType_InvalidatesCache` and
+  `Assets_ClearIndexesByGuids_InvalidatesCache`: warm the asset cache, clear, and assert the
+  follow-up `GetIndexes` re-reads the database (pre-fix the stale cache served deleted rows).
+- **M8** — progress formula extracted from `PrefabsModule.UpdateAssetsAsync` into
+  `public static PrefabsModule.ProgressPercent(int i, int total)`; `GuardTests` pins
+  total 0/1 → 100 (was NaN) and 0→100 span across a multi-asset run.
+- **M9** — `GuardTests.Similarity_EmptyTable_ReturnsNoRows`: an empty
+  `Dictionary<string, MetadataTable>` scores to an empty result set (the invariant the
+  `ComponentMetadata` empty-DB guard relies on).
+- **M14** — `dbPath` promoted to `public static SqliteStorage.DbPath`; `GuardTests.DbPath_IsAnchoredToProjectRoot`
+  pins the path to `<project>/Library/SnivelerCode_SemanticIndex.db` (project-anchored, not CWD).
 
 ---
 

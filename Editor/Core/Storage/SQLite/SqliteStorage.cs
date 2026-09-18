@@ -20,15 +20,15 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
         /// (REVIEW M14) instead of the current working directory, which is only an editor
         /// convention.
         /// </summary>
-        private static string dbPath => Path.GetFullPath(Path.Combine(
+        public static string DbPath => Path.GetFullPath(Path.Combine(
             Application.dataPath, "..", "Library", "SnivelerCode_SemanticIndex.db"));
 
         /// <summary>Opens the project-local index database and ensures the schema.</summary>
         public SqliteStorage()
         {
             SqliteNativeLoader.EnsureLibraryLoaded();
-            Directory.CreateDirectory(Path.GetDirectoryName(dbPath));
-            _connection = new SQLiteConnection(dbPath);
+            Directory.CreateDirectory(Path.GetDirectoryName(DbPath));
+            _connection = new SQLiteConnection(DbPath);
 
             InitAssets();
             InitProperties();
