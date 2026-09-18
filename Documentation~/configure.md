@@ -25,7 +25,9 @@ The window has three tabs — **Search**, **Embedding**, **Prefabs** — and a s
 
 ## Search tab — sensitivity
 
-**Sensitivity** (default 70) is the minimum similarity score, in percent, for a result.
+**Sensitivity** (default 25) is the minimum similarity score, in percent, for a result.
+Higher values are stricter (fewer, more precise matches); lower values allow broader
+associations.
 - Lower (e.g. 55–65) → more relaxed search, more noise;
 - 60–70 → the "sweet spot" for most projects;
 - Higher (e.g. 80+) → exact-ish matches only.

@@ -163,6 +163,15 @@ M10 DONE (standalone commit + push):
 - Output identical (deterministic model); M9 guard preserved in pass 2.
 - NEXT: M11 (sensitivity defaults inconsistent: code 25 vs docs 70).
 
+M11 DONE (standalone commit + push):
+- Decision: KEEP code default 25 (recall-first; changing it would silently alter search
+  behavior for users). Docs aligned: README (2 spots), configure.md, getting-started.md,
+  troubleshooting.md (default 25 + semantics; 60–70 = stricter/precision guidance).
+- UXML tooltip already correct (higher = more precise) — kept.
+- Bonus stale-line fixes in troubleshooting.md: model field mentions .sentis + .onnx;
+  removed "Prefabs/Audios tab" (Audios removed pre-release).
+- NEXT: M12 (Backend tooltip copy-paste bug).
+
 Paid/store version (user decision):
 - Install is now .unitypackage ONLY (no git URL in user-facing docs).
 - README: CI badge removed; Quick Start step 1 = Assets → Import Package → Custom Package

@@ -27,7 +27,8 @@ It runs fully locally — embeddings are computed in the Editor with **Unity Sen
    - leave **Tokens = 128** and **Backend = GPU** defaults (switch to **CPU** if your GPU lacks compute shader support).
 5. **Index assets**: in the **Prefabs tab → Check** (scans the project for new/modified prefabs) → **Index**.
 6. **Search** in the Search tab — describe what you need, e.g. *"heavy axe"*, *"small green plant"* or *"loud explosion"*.
-   Adjust the **Sensitivity** slider (60–70% is the sweet spot) to loosen or tighten the results.
+   Adjust the **Sensitivity** slider to loosen or tighten the results — the default 25 is loose
+   (recall-first); raise it toward 60–70 for stricter, more precise matches.
 
 ## ⚙️ Configuration
 
@@ -37,7 +38,7 @@ It runs fully locally — embeddings are computed in the Editor with **Unity Sen
 | `Vocab` (Embedding) | — | **tokenizer.json** (JSON tokenizer config with the vocabulary) |
 | `Tokens` (Embedding) | 128 | max sequence length; raise to 256–512 for deep folder paths |
 | `Backend` (Embedding) | GPU | Sentis compute backend; use CPU when GPU compute is unavailable |
-| `Sensitivity` (Search) | 70 | search threshold in %; 60–70 recommended |
+| `Sensitivity` (Search) | 25 | minimum similarity score in %; higher = stricter / fewer results (raise to 60–70 for precision) |
 
 The index and all settings live in `Library/SnivelerCode_SemanticIndex.db` (project-local, gitignored).
 

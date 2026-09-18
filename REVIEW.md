@@ -254,13 +254,17 @@ hundreds of prefabs sharing a few dozen scripts now pays one inference per *uniq
 session* instead of one per (prefab, component). Tag output is unchanged (deterministic model;
 identical `Similarity` inputs).
 
-### M11 · 🟡 [DOC/UX] Sensitivity defaults inconsistent
-- Code + UXML default: **25** (`SearchModel.Sensitivity = 25`, `SliderInt value="25"`).
-- README + configure.md: "default 70", "60–70 is the sweet spot".
-- UXML tooltip: "Higher values (70%+) return more precise matches" (threshold semantics).
-With model outputs unit-length (B3 verified), scores are true cosine similarities: 25 is a loose
-threshold, 70 a strict one. Pick one default, make code, UXML and docs agree, and state the
-semantics (higher = stricter / fewer results).
+### M11 · 🟡 [DOC/UX] Sensitivity defaults inconsistent — ✅ FIXED
+**Decision (behavior-preserving):** the implemented default is **25** — `SearchModel.Sensitivity = 25`
+with `if (finalScore > sensitivity * 0.01f)` and a unit-length model (B3), i.e. a loose,
+recall-first threshold. The code default was kept (changing it would silently change search
+behavior for all users) and the docs were aligned to it: README, configure.md,
+getting-started.md and troubleshooting.md no longer claim a 70 default / 60–70 sweet spot;
+they now state the semantics (higher = stricter / fewer results; raise to 60–70 for precision).
+The UXML tooltip ("Higher values (70%+) return more precise matches…") already matched the code
+and was kept. Also fixed two stale troubleshooting lines found in the same pass: the model
+field now mentions `.sentis` as well as `.onnx`, and the removed **Audios** tab was taken out
+of the Check instructions.
 
 ### M12 · 🟡 [DOC/UX] `Backend` tooltip copy-paste bug
 `EmbeddingModel.Backend.Tooltip` says "The vocabulary file used by the BERT tokenizer to encode

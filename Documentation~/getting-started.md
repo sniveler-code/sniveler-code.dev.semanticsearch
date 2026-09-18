@@ -59,6 +59,7 @@ Results appear grouped by type, sorted by similarity score.
 
 - Clicking a prefab result lets you drag it into the scene.
 
-Adjust the **Sensitivity** slider if you get too many or too few results (60–70% is typical).
+Adjust the **Sensitivity** slider if you get too many or too few results (default 25 is loose;
+raise it for stricter matches).
 
 That's it — you are now searching assets by meaning, fully offline.

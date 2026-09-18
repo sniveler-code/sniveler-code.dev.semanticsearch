@@ -2,9 +2,10 @@
 
 ## "Semantic model is empty" / assignment does nothing
 
-The model field expects a **Model Asset** (ONNX). If nothing happens after assigning:
+The model field expects a **Model Asset** (`.sentis` or `.onnx`). If nothing happens after
+assigning:
 
-- Check that the file is a valid ONNX model (re-import if it came from disk).
+- Check that the file is a valid model (re-import if it came from disk).
 - Check the status bar: "Unsupported model. Expected BERT-like inputs (input_ids,
   attention_mask)" means the model architecture is not supported.
 
@@ -23,8 +24,9 @@ and **Vocab** are assigned and no error message is shown.
 
 ## No results for a known asset
 
-1. Try lowering **Sensitivity** (60–65).
-2. Verify the asset was indexed: **Prefabs/Audios tab → Check** shows `Indexed: N`,
+1. Lower **Sensitivity** — the default 25 is already loose, so if it is at the default the
+   issue is likely indexing (steps 2–3), not the threshold.
+2. Verify the asset was indexed: **Prefabs tab → Check** shows `Indexed: N`,
    and it appears in the database count in the status bar.
 3. Re-run **Index** after changing model or metadata settings.
 
