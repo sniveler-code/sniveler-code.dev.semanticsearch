@@ -156,6 +156,13 @@ M9 DONE (standalone commit + push):
   return — one empty database must not abort remaining components).
 - NEXT: M10 (per-component embedding, batch size 1, no caching).
 
+M10 DONE (standalone commit + push):
+- ComponentMetadata.ProcessAsync two-pass: pass1 = standard tags + collect custom cleaned
+  names; batch-embed unique names missing from new per-session _nameVectorCache (Dictionary
+  string->float[]); pass2 = similarity per component from cached vectors.
+- Output identical (deterministic model); M9 guard preserved in pass 2.
+- NEXT: M11 (sensitivity defaults inconsistent: code 25 vs docs 70).
+
 Paid/store version (user decision):
 - Install is now .unitypackage ONLY (no git URL in user-facing docs).
 - README: CI badge removed; Quick Start step 1 = Assets → Import Package → Custom Package

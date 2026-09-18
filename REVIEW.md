@@ -245,12 +245,14 @@ NaN; the 0→100 mapping for multi-asset scans is unchanged (the original sugges
 With an empty Components database the extractor now gracefully produces no tags instead of
 throwing `IndexOutOfRangeException`.
 
-### M10 · 🟡 [PERF] Per-component embedding, batch size 1, no caching
-`ComponentMetadata` embeds each custom component name individually (`GetVectorsAsync(words)` with
-1 word) for every prefab, and the same script type is re-embedded per asset. For a project with
-hundreds of prefabs sharing scripts this is the dominant indexing cost on the CPU backend.
-**Fix:** collect all unique component names per run, embed once in batches, cache
-`name → vector` for the session.
+### M10 · 🟡 [PERF] Per-component embedding, batch size 1, no caching — ✅ FIXED
+**Fixed:** `ComponentMetadata.ProcessAsync` is now two-pass: (1) standard tags are collected and
+custom component names gathered; (2) the unique names missing from the new per-session
+`_nameVectorCache` (cleaned name → vector) are embedded in a **single** `GetVectorsAsync` batch
+call, then each component's similarity is computed from the cached vectors. A project with
+hundreds of prefabs sharing a few dozen scripts now pays one inference per *unique script per
+session* instead of one per (prefab, component). Tag output is unchanged (deterministic model;
+identical `Similarity` inputs).
 
 ### M11 · 🟡 [DOC/UX] Sensitivity defaults inconsistent
 - Code + UXML default: **25** (`SearchModel.Sensitivity = 25`, `SliderInt value="25"`).

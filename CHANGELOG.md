@@ -42,6 +42,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   behavior unchanged).
 
 ### Fixed
+- **Component embedding performance** — `ComponentMetadata` now embeds custom component names in
+  a single batch call per prefab and caches name → vector for the session (previously one
+  inference per component per prefab, re-embedding the same scripts on every asset); tag output
+  is unchanged (REVIEW M10).
 - **Crash on empty Components database** — `ComponentMetadata.ProcessAsync` indexed
   `topTags[0]` unconditionally, throwing `IndexOutOfRangeException` when the Components
   category database had no rows; the component is now skipped (REVIEW M9).

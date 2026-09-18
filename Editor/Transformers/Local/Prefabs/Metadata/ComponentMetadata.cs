@@ -51,18 +51,30 @@ namespace SnivelerCode.SemanticSearch.Editor.Transformers.Local.Prefabs.Metadata
         {
         }
 
+        /// <summary>
+        /// Session cache: cleaned component name → embedding vector (REVIEW M10 — a script
+        /// type is embedded once per session, not once per prefab).
+        /// </summary>
+        private readonly Dictionary<string, float[]> _nameVectorCache = new();
+
         /// <summary>Returns behavioural keywords for a prefab.</summary>
         public override async Task<IMetadataResult> ProcessAsync(GameObject go)
         {
             HashSet<string> tags = new HashSet<string>();
             var components = go.GetComponentsInChildren<Component>();
             var database = _metadata.MetadataCategory(DatabaseType.Components);
+
+            // Pass 1 (REVIEW M10): standard tags are collected right away, custom component
+            // names are collected so they can all be embedded in one batch call (previously:
+            // one inference per component, per prefab, no caching).
+            var customNames = new List<string>();
             foreach (var comp in components)
             {
                 if (comp == null) continue;
 
                 var componentType = comp.GetType();
-                if (_standardComponent.TryGetValue(componentType.Name, out string value))
+                var componentTypeName = componentType.Name;
+                if (_standardComponent.TryGetValue(componentTypeName, out string value))
                 {
                     tags.Add(value);
                     continue;
@@ -73,13 +85,32 @@ namespace SnivelerCode.SemanticSearch.Editor.Transformers.Local.Prefabs.Metadata
                     continue;
                 }
 
-                var words = new MetadataWord[]
-                {
-                    new(CleanNameSpecific(componentType.Name))
-                };
+                customNames.Add(CleanNameSpecific(componentTypeName));
+            }
+
+            // Embed only the unique names not in the cache yet — in a single inference.
+            var missing = customNames
+                .Distinct()
+                .Where(name => !_nameVectorCache.ContainsKey(name))
+                .ToArray();
+            if (missing.Length > 0)
+            {
+                var words = new MetadataWord[missing.Length];
+                for (int i = 0; i < missing.Length; i++)
+                    words[i] = new(missing[i]);
 
                 await _metadata.GetVectorsAsync(words);
-                var results = database.Similarity(words);
+                for (int i = 0; i < words.Length; i++)
+                    _nameVectorCache[missing[i]] = words[i].Vector;
+            }
+
+            // Pass 2: similarity of every custom component against the Components database.
+            foreach (string name in customNames)
+            {
+                var results = database.Similarity(new[]
+                {
+                    new MetadataWord(name) {Vector = _nameVectorCache[name]}
+                });
 
                 var topTags = results
                     .OrderByDescending(a => a.Value[0])
