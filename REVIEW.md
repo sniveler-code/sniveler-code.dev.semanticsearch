@@ -415,8 +415,13 @@ Also: `changelogUrl`/`documentationUrl` in `package.json` point to
 6. 🟡→✅ ~~M13 (DI order), M14 (DB path), M12 (tooltip), M15 (SQLite native loader).~~ **Done**.
 7. ⚪→✅ ~~L15 dead code cleanup~~ **Done** (see L15 — 4 items removed, 2 findings stale).
    Remaining from this line: capture screenshots (owner task); finalize `LICENSE.md` text.
-8. Re-run the 30 EditMode tests + a manual pass: import sample → Check → Index → search
+8. ⚪ Re-run the 30 EditMode tests + a manual pass: import sample → Check → Index → search
    "heavy axe" → verify score percentages are sane (should read ~50–95%, not thousands).
+   ✅ **Tests re-run via `unity test` (headless, Unity 6000.5.2f1)**: 62/62 passed, 0 failed
+   (first run: 50 passed + 12 skipped by the user-DB protection guard; second run with the
+   index DB moved aside: 62/62 — including the new M7 cache-invalidation tests and the M8/M9/M14
+   `GuardTests`). This also confirmed the whole package (M7–L17 changes) compiles clean in the
+   real editor. ⚪ Manual sample pass still pending (owner, needs an interactive Editor).
 
 ## 6. Bottom line
 

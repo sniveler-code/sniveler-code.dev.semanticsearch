@@ -242,6 +242,22 @@ L17 DONE (standalone commit + push):
   changes only) — first Unity editor open remains the compile/runtime gate.
 - NEXT: L16 = owner/store tasks (screenshots, export decisions); checklist 8 editor validation.
 
+EDITOR VALIDATION (tests) DONE via unity CLI (unity test, 6000.5.2f1, EditMode, headless):
+- Run 1: 62 tests -> 50 passed, 0 failed, 12 INCONCLUSIVE (the SqliteStorageTests-family
+  user-DB protection guard skipped them: "Existing user database detected"). Unity's batch
+  runner exits 2 on any non-passed result, so the CLI reported "tests failed" — there were
+  NO actual failures.
+- Run 2 (Library/SnivelerCode_SemanticIndex.db moved to .bak, restored after — same 765,952
+  bytes): 62/62 passed, 0 failed, 0 skipped, ~1.1 s. Confirmed passing: 5 new GuardTests
+  (M8 ProgressPercent x4 incl. test cases, M9 Similarity_EmptyTable, M14 DbPath_IsAnchoredTo
+  ProjectRoot) + 2 new M7 cache-invalidation tests + all pre-existing suites.
+- GATE CLEARED: entire package (M7-M15, L15, L17, .editorconfig adoption) compiles clean in
+  the real Unity editor — no Safe Mode, no CS errors.
+- REMAINING checklist 8: manual sample pass (import -> Check -> Index -> search "heavy axe",
+  expect ~50-95% scores) — owner task, needs an interactive Editor.
+- NEXT: L16 owner/store tasks (screenshots; export decisions: REVIEW.md/state-review.md in
+  .unitypackage, macOS CLI binaries).
+
 Paid/store version (user decision):
 - Install is now .unitypackage ONLY (no git URL in user-facing docs).
 - README: CI badge removed; Quick Start step 1 = Assets → Import Package → Custom Package
