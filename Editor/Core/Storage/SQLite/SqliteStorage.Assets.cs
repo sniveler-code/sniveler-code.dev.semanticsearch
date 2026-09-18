@@ -60,6 +60,7 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
             int result = _connection.Table<AssetsTable>()
                 .Delete(i => i.StorageType == storageType);
             _connection.Execute("VACUUM");
+            _assetCache = null;
             return result;
         }
 

@@ -225,9 +225,13 @@ Remaining (documented, not fixed): the inference call itself still blocks the ma
 one batch — the Sentis compute backend exposes no job/thread API. Acceptable editor behavior
 for ~128-token batches; true async inference would be a Sentis-level feature request.
 
-### M7 · 🟡 [CORRECTNESS] Stale asset cache after partial clear
-`SqliteStorage.ClearIndexes(AssetStorageType)` deletes rows but does not set `_assetCache = null`
-(`ClearIndexes(HashSet)` does). Search keeps serving deleted assets until the next write.
+### M7 · 🟡 [CORRECTNESS] Stale asset cache after partial clear — ✅ FIXED
+**Fixed:** `ClearIndexes(AssetStorageType)` now invalidates `_assetCache`, matching the
+`ClearIndexes(HashSet)` and `SetIndexes` behavior — every mutation invalidates the cache.
+Guard test `ClearIndexes_ByType_InvalidatesAssetCache` pins the invariant. Note: at fix time
+the type overload had no UI call sites (it is public `SqliteStorage` API, not on
+`IAssetsStorage`) — the fix is preventive, so a future "clear all of a type" caller cannot
+serve stale reads.
 
 ### M8 · 🟡 [CORRECTNESS] Division by zero in Check progress
 `PrefabsModule.UpdateAssetsAsync`: `callback?.Invoke(path, i * 100f / (total - 1))` → `0/0 = NaN`

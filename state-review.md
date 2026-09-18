@@ -126,6 +126,25 @@ M6 RETRACTED (verified against installed Sentis 2.6.1 source):
 - REVIEW.md M6 -> RETRACTED + checklist updated. Committed. NEXT: M7 (stale asset cache after
   partial ClearIndexes).
 
+FIRST PUSH DONE (user: "commit all and push"):
+- Committed EVERYTHING: VectorMathTests.cs user edit (exact-equality AreEqual), REVIEW.md +
+  REVIEW.md.meta, state-review.md + .meta. Working tree clean.
+- git push -u origin main -> github.com/sniveler-code/sniveler-code.dev.semanticsearch:
+  131 LFS objects (105 MB) uploaded, branch main live. HEAD = 116e788 (single initial commit,
+  recovery chain: 393af01 -> 116e788).
+
+Commit strategy change (user): SEPARATE COMMIT PER TASK — amending the initial commit is over
+(repo is pushed). M7 is the first standalone commit.
+
+M7 DONE (standalone commit + push):
+- SqliteStorage.ClearIndexes(AssetStorageType) now does _assetCache = null (matches HashSet
+  overload + SetIndexes: every mutation invalidates the cache).
+- Guard test ClearIndexes_ByType_InvalidatesAssetCache (SqliteStorageTests; auto-skips when a
+  user DB exists — CI/clean-project only, like the rest of that class).
+- Note: type overload had no UI callers at fix time (public API, not on IAssetsStorage) —
+  preventive fix for future "clear all of a type" callers.
+- NEXT: M8 (progress division by zero in PrefabsModule.UpdateAssetsAsync).
+
 Paid/store version (user decision):
 - Install is now .unitypackage ONLY (no git URL in user-facing docs).
 - README: CI badge removed; Quick Start step 1 = Assets → Import Package → Custom Package

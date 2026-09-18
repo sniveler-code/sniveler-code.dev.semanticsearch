@@ -41,6 +41,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   instead of the obsolete `LongestFirstTruncator` (matches Sentis 2.6.1's `HuggingFaceParser`;
   behavior unchanged).
 
+### Fixed
+- **Stale asset cache after partial index clear** — `SqliteStorage.ClearIndexes(AssetStorageType)`
+  now invalidates the in-memory asset cache (it could otherwise keep serving deleted rows until
+  the next write). Guard test added (REVIEW M7).
+
 ### Removed
 - **Float32 `MiniLM.onnx`** — removed from the package and the repository to shrink the
   shipped package by ~90 MB; the shipped model is now the uint8-quantized derivative

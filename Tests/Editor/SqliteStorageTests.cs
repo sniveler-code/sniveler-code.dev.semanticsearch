@@ -111,6 +111,26 @@ namespace SnivelerCode.SemanticSearch.Tests.Editor
             }
         }
 
+        /// <summary>Clearing all rows of a type invalidates the asset cache (REVIEW M7).</summary>
+        [Test]
+        public void ClearIndexes_ByType_InvalidatesAssetCache()
+        {
+            using (var db = new SqliteStorage())
+            {
+                db.SetIndexes(new[]
+                {
+                    new AssetsTable {Guid = "a", Path = "1", Hash = "h",
+                        StorageType = AssetStorageType.Prefabs, Status = AssetStorageStatus.Indexed},
+                    new AssetsTable {Guid = "b", Path = "2", Hash = "h",
+                        StorageType = AssetStorageType.Prefabs, Status = AssetStorageStatus.Indexed}
+                });
+
+                Assert.AreEqual(2, db.GetIndexes().Length, "fills the asset cache");
+                db.ClearIndexes(AssetStorageType.Prefabs);
+                CollectionAssert.IsEmpty(db.GetIndexes(), "cache must not serve deleted rows");
+            }
+        }
+
         /// <summary>Property values round-trip through SQLite.</summary>
         [Test]
         public void Properties_RoundtripThroughSqlite()
