@@ -289,6 +289,27 @@ always does in a Unity project). The path is identical to before for every norma
 session (project root + `/Library/`), and `SqliteStorageTests` (which computes the same
 `<project>/Library/` location from CWD) is unaffected.
 
+### M15 · 🟡 [RELIABILITY] `DllImport("sqlite3")` has no resolver — bundled DLL only found by accident — ✅ FIXED
+`SQLite.cs` declares bare `DllImport("sqlite3")` P/Invokes. There is no resolver in the code
+and the bundled `Editor/ThirdParty/SQLite/Windows/sqlite3.dll` is a plain default import (not
+a native plugin), so on a clean Windows machine the name resolves only if `sqlite3.dll`
+happens to be on PATH or in a system directory. **Fixed:** new `SqliteNativeLoader`
+(`Editor/ThirdParty/SQLite/SqliteNativeLoader.cs`) preloads the bundled DLL with
+`kernel32!LoadLibrary` before the first SQLite P/Invoke — a library already loaded in the
+process is what the P/Invoke then binds to. The DLL is located by a bounded walk of
+`Assets/` and `Packages/` (skips `Library/`), which covers both `.unitypackage` (Assets) and
+path/git (Packages) installs. `SqliteStorage`'s constructor calls
+`EnsureLibraryLoaded()`; it is idempotent and non-fatal (on failure it logs a warning and
+default resolution still applies). macOS is a no-op (the system `libsqlite3.dylib` is found
+by default resolution).
+**Why not `NativeLibrary.SetDllImportResolver`:** it is .NET Core 3.0+ only and does not
+exist in the .NET Standard 2.1 profile the editor compiles against — verified by compiling
+the loader against the real editor reference assemblies (`UnityEditor.dll`,
+`UnityEngine.dll` from 6000.5.2f1, netstandard2.1): the `System.Runtime.Loader` namespace
+is absent, and `UnityEditor.EditorAssembly` (the obvious way to find the package asmdef)
+does not exist in this build either (verified via metadata scan of the editor's managed
+DLLs). The `LoadLibrary` preload works in every Unity version.
+
 ### L18 · ⚪ [WARNING] Obsolete API usage — ✅ FIXED
 `MiniTokenizer.cs:36` used `LongestFirstTruncator`, which is `[Obsolete("Use GenericTruncator instead")]`
 in Sentis 2.6.1 (the installed version; package declares `2.3.0`). Replaced with the canonical
@@ -362,8 +383,9 @@ Also: `changelogUrl`/`documentationUrl` in `package.json` point to
 4. 🟠→✅ ~~Fix B4 (LFS or FAQ) and add `.gitattributes`/`.gitignore`.~~ **Done** — LFS for all 131
    large binaries, `.gitignore` added, unpushed initial commit amended, pack 471 KiB (was ~70 MiB),
    165 MB in `.git/lfs`.
-5. 🟡 M7–M10 correctness/perf fixes (M5 ✅ fixed; M6 ❌ retracted — no race exists).
-6. 🟡 M13 (DI order), M14 (DB path), M12 (tooltip).
+5. 🟡→✅ ~~M7–M10 correctness/perf fixes~~ **Done** (M5 ✅, M6 ❌ retracted — no race
+   exists; M7–M10 ✅).
+6. 🟡→✅ ~~M13 (DI order), M14 (DB path), M12 (tooltip), M15 (SQLite native loader).~~ **Done**.
 7. ⚪ L15 dead code cleanup; capture screenshots (owner task); finalize `LICENSE.md` text.
 8. Re-run the 30 EditMode tests + a manual pass: import sample → Check → Index → search
    "heavy axe" → verify score percentages are sane (should read ~50–95%, not thousands).

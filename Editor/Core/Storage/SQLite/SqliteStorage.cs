@@ -26,6 +26,7 @@ namespace SnivelerCode.SemanticSearch.Editor.Core.Storage.SQLite
         /// <summary>Opens the project-local index database and ensures the schema.</summary>
         public SqliteStorage()
         {
+            SqliteNativeLoader.EnsureLibraryLoaded();
             Directory.CreateDirectory(Path.GetDirectoryName(dbPath));
             _connection = new(dbPath);
 

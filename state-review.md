@@ -193,6 +193,23 @@ M14 DONE (standalone commit + push):
 - NEXT: M15 (candidate — DllImport("sqlite3") has no resolver on Windows; M5-M14 done,
   remaining: M15 + L15 dead code + L16/L17 packaging/test items).
 
+M15 DONE (standalone commit + push):
+- New Editor/ThirdParty/SQLite/SqliteNativeLoader.cs: preloads bundled sqlite3.dll via
+  kernel32!LoadLibrary before the first P/Invoke (once loaded in-process, the bare
+  DllImport("sqlite3") binds to it). DLL located by bounded walk of Assets/ + Packages/
+  (skips Library/) — covers .unitypackage (Assets) and path/git (Packages) installs.
+  SqliteStorage ctor calls EnsureLibraryLoaded() (idempotent, non-fatal; warns on failure).
+  macOS = no-op (system libsqlite3.dylib via default resolution).
+- Verified by compiling the loader against real editor reference assemblies
+  (D:/Unity/Editor/6000.5.2f1, netstandard2.1): clean. Two API facts established:
+  * System.Runtime.Loader.NativeLibrary is NOT in the .NET Standard 2.1 profile
+    (CS0234) — SetDllImportResolver is a non-starter.
+  * UnityEditor.EditorAssembly does NOT exist in Unity 6.5.2f1 (CS0103 + metadata scan
+    of all editor managed DLLs + XML docs) — asmdef-based path lookup unavailable.
+  * AssetDatabase.GetAssetPath(string guid) overload is GONE in 6.5.2f1 (only
+    int/EntityId/Object overloads per XML) — another reason for the file walk.
+- NEXT: L15 (dead/legacy code cleanup), then L16/L17 packaging+test items.
+
 Paid/store version (user decision):
 - Install is now .unitypackage ONLY (no git URL in user-facing docs).
 - README: CI badge removed; Quick Start step 1 = Assets → Import Package → Custom Package

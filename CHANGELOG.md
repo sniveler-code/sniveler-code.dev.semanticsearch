@@ -56,6 +56,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   behavior unchanged).
 
 ### Fixed
+- **Windows SQLite native library resolution** — the editor's bare `DllImport("sqlite3")`
+  P/Invokes now explicitly preload the package's bundled `sqlite3.dll` (located under
+  `Assets/` or `Packages/`, loaded with `kernel32!LoadLibrary` before the first database
+  call) instead of depending on the DLL being on PATH (REVIEW M15). No-op on macOS, which
+  resolves the system library by default.
 - **Component embedding performance** — `ComponentMetadata` now embeds custom component names in
   a single batch call per prefab and caches name → vector for the session (previously one
   inference per component per prefab, re-embedding the same scripts on every asset); tag output
