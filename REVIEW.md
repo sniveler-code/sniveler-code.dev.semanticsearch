@@ -239,10 +239,11 @@ i * 100f / (total - 1)`. A single scanned asset is by definition the last one �
 NaN; the 0→100 mapping for multi-asset scans is unchanged (the original suggestion
 `i * 100f / total` would have shifted the scale so the last asset never reached 100%).
 
-### M9 · 🟡 [CORRECTNESS] `topTags[0]` on empty Components database
-`ComponentMetadata.ProcessAsync`: if `DatabaseType.Components` has no rows, `results` is empty and
-`topTags[0]` throws `IndexOutOfRangeException` (only masked because AutoBake runs first in the
-normal Index flow). Guard `topTags.Length == 0` → return.
+### M9 · 🟡 [CORRECTNESS] `topTags[0]` on empty Components database — ✅ FIXED
+**Fixed:** `ComponentMetadata.ProcessAsync` guards `topTags.Length == 0` and skips the component
+(`continue`, not `return` — one empty database must not abort the remaining components).
+With an empty Components database the extractor now gracefully produces no tags instead of
+throwing `IndexOutOfRangeException`.
 
 ### M10 · 🟡 [PERF] Per-component embedding, batch size 1, no caching
 `ComponentMetadata` embeds each custom component name individually (`GetVectorsAsync(words)` with

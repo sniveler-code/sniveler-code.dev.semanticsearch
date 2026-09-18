@@ -42,6 +42,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   behavior unchanged).
 
 ### Fixed
+- **Crash on empty Components database** — `ComponentMetadata.ProcessAsync` indexed
+  `topTags[0]` unconditionally, throwing `IndexOutOfRangeException` when the Components
+  category database had no rows; the component is now skipped (REVIEW M9).
 - **NaN Check progress for a single asset** — `PrefabsModule.UpdateAssetsAsync` divided by
   `total - 1`, producing NaN in the progress bar when exactly one asset was scanned; now
   reports 100% in that case, 0→100 mapping unchanged otherwise (REVIEW M8).

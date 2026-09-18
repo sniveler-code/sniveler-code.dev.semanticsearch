@@ -86,6 +86,10 @@ namespace SnivelerCode.SemanticSearch.Editor.Transformers.Local.Prefabs.Metadata
                     .Take(2)
                     .ToArray();
 
+                // REVIEW M9: an empty Components database yields no similarity rows — skip
+                // this component instead of indexing into an empty array.
+                if (topTags.Length == 0) continue;
+
                 var first = topTags[0];
                 if (first.Value[0] > 0.4f)
                 {

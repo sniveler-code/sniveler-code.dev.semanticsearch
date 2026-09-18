@@ -151,6 +151,11 @@ M8 DONE (standalone commit + push):
   would have shifted the scale — last asset never reaching 100%).
 - NEXT: M9 (topTags[0] on empty Components database).
 
+M9 DONE (standalone commit + push):
+- ComponentMetadata.ProcessAsync: topTags.Length == 0 -> continue (skip component, not
+  return — one empty database must not abort remaining components).
+- NEXT: M10 (per-component embedding, batch size 1, no caching).
+
 Paid/store version (user decision):
 - Install is now .unitypackage ONLY (no git URL in user-facing docs).
 - README: CI badge removed; Quick Start step 1 = Assets → Import Package → Custom Package
